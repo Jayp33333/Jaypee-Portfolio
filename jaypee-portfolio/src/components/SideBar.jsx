@@ -65,7 +65,7 @@ const SideBar = () => {
               <Link
                 to={item.path}
                 onClick={handleLinkClick}
-                className="flex flex-col items-center gap-2 menu-item hover:text-yellow-500 transform transition-transform duration-300 hover:scale-110 active:scale-95"
+                className="flex flex-col items-center gap-2 menu-item hover:text-yellow-600 hover:shadow-xl transform transition-transform duration-300 hover:scale-110 active:scale-95"
               >
                 <item.icon className="text-xl sm:text-[30px] shadow-md hover:shadow-lg transition-shadow duration-300" />
                 <span>{item.label}</span>

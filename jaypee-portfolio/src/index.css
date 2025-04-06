@@ -23,7 +23,7 @@
 
 @layer components{
   .containerLayout{
-    @apply container mx-auto min-h-[100vh]
+    @apply container mx-auto h-[100vh]
   }
   .arrow-btn{
     @apply absolute -bottom-[5rem] transform -translate-y-1/2 bg-blue-950 bg-opacity-70 text-white p-2 rounded-full shadow  
