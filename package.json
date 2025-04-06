@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "npm install && npm install --prefix jaypee-portfolio && npm run build --prefix jaypee-portfolio"
+  },
+  "dependencies": {
+    "init": "^0.1.2",
+    "tailwind-scrollbar": "^4.0.2"
+  }
+  
+
+}
