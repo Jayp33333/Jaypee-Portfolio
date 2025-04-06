@@ -12,7 +12,7 @@ const App = () => {
     const fakeDataFetch = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 100);
+      }, 4000);
     };
     fakeDataFetch();
   }, []);
