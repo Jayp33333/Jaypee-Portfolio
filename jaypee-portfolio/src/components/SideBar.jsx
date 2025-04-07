@@ -52,24 +52,35 @@ const SideBar = () => {
           h-screen sm:h-auto 
           w-3/4 max-w-[260px] sm:w-auto
           p-6 sm:p-4 
-          bg-black/60 backdrop-blur-md sm:bg-transparent sm:backdrop-blur-0
+          bg-[#171717] rounded-xl
           transform transition-transform duration-300 ease-in-out 
           ${isOpen ? "translate-x-0" : "-translate-x-full"} 
           sm:translate-x-0 
           flex flex-col sm:fixed sm:top-1/2 sm:left-4 sm:-translate-y-1/2
         `}
       >
-        <ul className="flex flex-col justify-start text-white mt-16 text-sm sm:text-[16px] space-y-6 sm:space-y-4">
+        <ul className="flex flex-col justify-start text-white mt-16 sm:mt-0 text-sm sm:text-[16px] space-y-6 sm:space-y-4">
           {SideBarLinks.map((item) => (
             <li key={item.id}>
               <Link
                 to={item.path}
                 onClick={handleLinkClick}
-                className="flex flex-col items-center gap-2 menu-item hover:text-yellow-600 hover:shadow-xl transform transition-transform duration-300 hover:scale-110 active:scale-95"
+                className="group relative flex flex-col items-center gap-2 menu-item rounded-full bg-[#262626] hover:shadow-xl transform transition-transform duration-300 hover:scale-125 active:scale-95 p-2"
               >
-                <item.icon className="text-xl sm:text-[30px] shadow-md hover:shadow-lg transition-shadow duration-300" />
-                <span>{item.label}</span>
+                <item.icon className="text-xl sm:text-2xl shadow-md hover:shadow-lg transition-shadow duration-300 text-gray-400 hover:text-white" />
+                <span
+                  className="
+                    absolute left-full ml-2 px-2 py-1 
+                    bg-[#262626] text-white text-xs rounded 
+                    opacity-0 group-hover:opacity-100 
+                    whitespace-nowrap pointer-events-none 
+                    transition-opacity duration-300 z-50
+                  "
+                >
+                  {item.label}
+                </span>
               </Link>
+
             </li>
           ))}
         </ul>
