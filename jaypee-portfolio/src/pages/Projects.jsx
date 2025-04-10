@@ -1,155 +1,156 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import { IoIosArrowForward } from 'react-icons/io'
-import { FaInfoCircle, FaLink } from 'react-icons/fa'  // Importing icons from React Icons
-import { projectData } from '../utils/data.js'
-import ProjectCard from '../components/ProjectCard.jsx'
-import { motion } from 'framer-motion'  // Import Framer Motion
+import React, { useState } from "react";
+import { FaInfoCircle, FaLink } from "react-icons/fa";
+import { projectData } from "../utils/data";
+import { motion } from "framer-motion"; // Import Framer Motion
 
-const MyProjects = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'center',
-    loop: true,
-    skipSnaps: false,
-  })
-  const [canScrollPrev, setCanScrollPrev] = useState(false)
-  const [canScrollNext, setCanScrollNext] = useState(false)
-  const [selectedSnap, setSelectedSnap] = useState(0)
-  const [showModal, setShowModal] = useState(false)
-  const [currentProjectDescription, setCurrentProjectDescription] = useState('')
-  const slideRefs = useRef([])
+const Projects = () => {
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [direction, setDirection] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [currentProjectDescription, setCurrentProjectDescription] =
+    useState("");
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setSelectedSnap(emblaApi.selectedScrollSnap())
-    setCanScrollPrev(emblaApi.canScrollPrev())
-    setCanScrollNext(emblaApi.canScrollNext())
-  }, [emblaApi])
+  const total = projectData.length;
+  const leftIndex = (current - 1 + total) % total;
+  const centerIndex = current;
+  const rightIndex = (current + 1) % total;
 
-  useEffect(() => {
-    if (!emblaApi) return
-    emblaApi.on('select', onSelect)
-    onSelect()
-  }, [emblaApi, onSelect])
+  const handleSlide = (dir) => {
+    if (animating) return;
+    setDirection(dir);
+    setAnimating(true);
+
+    setTimeout(() => {
+      if (dir === "next") {
+        setCurrent((current + 1) % total);
+      } else {
+        setCurrent((current - 1 + total) % total);
+      }
+      setAnimating(false);
+    }, 550);
+  };
+
+  const openModal = () => {
+    const project = projectData[centerIndex];
+    setCurrentProjectDescription(project.description);
+    setShowModal(true);
+  };
 
   const handleShowDescription = (description) => {
-    setCurrentProjectDescription(description)
-    setShowModal(true)
-  }
+    setCurrentProjectDescription(description);
+    setShowModal(true);
+  };
 
-  const handleCloseModal = () => {
-    setShowModal(false)
-  }
+  const closeModal = () => {
+    setShowModal(false);
+    setCurrentProjectDescription("");
+  };
 
-  const currentProject = projectData[selectedSnap]
+  const currentProject = projectData[centerIndex];
 
   return (
-    <section className='container mx-auto px-4 sm:px-24 md:px-36 py-10'>
-      <motion.h4
-        className='text-3xl font-bold text-center mb-10'
-        initial={{ opacity: 0, y: -20 }}
+    <section className="containerLayout flex flex-col items-center justify-center py-16">
+      {/* Slider */}
+      <motion.div
+        className="slider-container relative"
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        Sample Projects
-      </motion.h4>
+        {[leftIndex, centerIndex, rightIndex].map((index, i) => {
+          const project = projectData[index];
+          const position = i === 0 ? "left" : i === 1 ? "center" : "right";
 
-      {/* Carousel */}
-      <div className='relative mb-8'>
-        <div className='overflow-hidden' ref={emblaRef}>
-          <div className='flex gap-6'>
-            {projectData.map((project, index) => {
-              const isActive = index === selectedSnap
-              return (
-                <div
-                  key={project.id}
-                  ref={(el) => (slideRefs.current[index] = el)}
-                  className={`min-w-[100%] md:min-w-96 lg:min-w-[26rem] transition-transform duration-500 ${
-                    isActive ? 'scale-110 z-20' : 'scale-90 opacity-0'
-                  }`}
-                >
-                  <div className='flex flex-col items-center bg-blue-950 bg-opacity-40 px-7 py-10 rounded-lg shadow-lg overflow-hidden'>
-                    {/* Image Only */}
-                    <ProjectCard imgUrl={project.image} isActive={isActive} />
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
+          return (
+            <div
+              key={project.id}
+              className={`card ${position} ${
+                animating ? `slide-${direction}` : ""
+              } ${position === "center" ? "cursor-pointer" : ""}`}
+              onClick={position === "center" ? openModal : undefined}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="rounded shadow-lg"
+              />
+              <div className="text-center mt-4 p-2">
+                <h3 className="text-lg font-bold">{project.title}</h3>
+                <p className="text-sm text-gray-600 line-clamp-2">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </motion.div>
 
-        {/* Navigation Buttons */}
-        <div className='absolute inset-0 flex items-center justify-between'>
+      {/* Slider Controls */}
+      <div className="flex justify-center gap-4 mt-10">
         <button
-          className={`arrow-btn left-5 top-1/2 -translate-y-1/2 absolute z-10 ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`}
-          onClick={() => emblaApi && emblaApi.scrollPrev()}
-          disabled={!canScrollPrev}
+          onClick={() => handleSlide("prev")}
+          className="arrowBtn px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800 transition"
         >
-          <IoIosArrowForward className='rotate-180 text-3xl text-black' />
+          ←
         </button>
-
         <button
-          className={`arrow-btn right-5 top-1/2 -translate-y-1/2 absolute z-10 ${!canScrollNext ? 'opacity-50 cursor-not-allowed' : ''}`}
-          onClick={() => emblaApi && emblaApi.scrollNext()}
-          disabled={!canScrollNext}
+          onClick={() => handleSlide("next")}
+          className="arrowBtn px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800 transition"
         >
-          <IoIosArrowForward className='text-3xl text-black' />
+          →
         </button>
-        </div>
-        
       </div>
 
-      {/* Info Section Below Carousel */}
-      <div className='text-center py-6 px-4 rounded-lg shadow-md'>
-        {/* Motion Title with Animation */}
+      {/* Current Project Actions */}
+      <div className="flex flex-col items-center mt-12 w-full max-w-4xl px-6">
         <motion.h2
-          key={selectedSnap}
-          className='text-2xl font-semibold text-white mb-4'
+          key={currentProject.title}
+          className="text-2xl font-bold text-white mb-6 w-full text-center py-2 rounded"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
           {currentProject.title}
         </motion.h2>
 
-        {/* Buttons Section with Only Icons */}
-        <motion.div
-          className='flex justify-center gap-4 mb-4'
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.button
-            className='bg-gray-900 text-white p-4 rounded hover:bg-gray-800 transition-transform transform scale-95 hover:scale-100 duration-200'
+        <div className="flex flex-wrap justify-center gap-4">
+          <button
+            className="bg-gray-900 text-white px-6 py-3 rounded hover:bg-gray-800 flex items-center gap-2 transition"
             onClick={() => handleShowDescription(currentProject.description)}
-
           >
-            <FaInfoCircle className='inline-block text-white text-2xl' />
-            <span className='ml-2'>Show Description</span>
-          </motion.button>
+            <FaInfoCircle className="text-xl" />
+            Show Description
+          </button>
 
-          <motion.button
-            className='bg-gray-900 text-white p-4 rounded hover:bg-gray-800 transition-transform transform scale-95 hover:scale-100 duration-200'
-            onClick={() => window.open(currentProject.link, '_blank')}
-
+          <button
+            className="bg-gray-900 text-white px-6 py-3 rounded hover:bg-gray-800 flex items-center gap-2 transition"
+            onClick={() => window.open(currentProject.link, "_blank")}
           >
-            <FaLink className='inline-block text-white text-2xl' /> Show Project
-          </motion.button>
-        </motion.div>
+            <FaLink className="text-xl" />
+            Show Project
+          </button>
+        </div>
       </div>
 
-      {/* Modal for Description */}
+      {/* Modal */}
       {showModal && (
-        <div className='fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50'>
-          <div className='bg-white p-6 rounded-lg w-96 max-w-full transition-transform transform scale-95 hover:scale-100 duration-200'>
-            <h3 className='text-xl font-bold mb-4'>Project Description</h3>
-            <p className='text-gray-700 mb-6'>{currentProjectDescription}</p>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          role="dialog"
+          aria-modal="true"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white p-6 rounded-lg w-96 max-w-full transition-transform transform scale-95 hover:scale-100 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-xl font-bold mb-4">Project Description</h3>
+            <p className="text-gray-700 mb-6">{currentProjectDescription}</p>
             <button
-              className='bg-red-500 text-white px-4 py-2 rounded w-full hover:bg-red-600'
-              onClick={handleCloseModal}
+              className="bg-red-500 text-white px-4 py-2 rounded w-full hover:bg-red-600"
+              onClick={closeModal}
             >
               Close
             </button>
@@ -157,7 +158,7 @@ const MyProjects = () => {
         </div>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default MyProjects
+export default Projects;

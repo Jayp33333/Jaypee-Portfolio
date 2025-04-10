@@ -37,6 +37,121 @@
   .font-roboto{
     font-family: 'Roboto Mono', sans-serif;
   }
+
+  /* Image Slider */
+  .slider-container {
+    position: relative;
+    width: 500px;
+    height: 300px;
+  }
   
+  .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 0.8s ease, filter 0.5s ease;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Position styles */
+  .left {
+    transform: translateX(0px) translateY(-70px) scale(0.8) rotateY(10deg);
+    z-index: 1;
+    filter: brightness(0.7);
+  }
+  
+  .center {
+    transform: translateX(0) scale(1) rotateY(0deg);
+    z-index: 2;
+    filter: brightness(1);
+  }
+  
+  .right {
+    transform: translateX(0px) translateY(-40px) scale(0.9) rotateY(-10deg);
+    z-index: 1;
+    filter: brightness(0.7);
+  }
+  
+  @keyframes jump {
+    0% {
+      transform: translateX(0px) translateY(-40px) scale(0.9) /* Start at the normal position */
+    }
+    50% {
+      transform: translateY(-60px) scale(1); /* Jump upwards */
+      z-index: 3;
+    }
+    100% {
+      transform: translateY(0) scale(1); /* Return to the original position */
+      filter: brightness(1);
+      z-index: 3;
+    }
+  }
+  
+  /* Apply keyframe animation on hover */
+  .center:hover {
+    z-index: 4; /* Ensure it's on top of other cards */
+    filter: brightness(1.2); /* Increase brightness on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow to give depth */
+    transform: scale(1.05);
+  }
+  
+  /* Animation Classes */
+  .slide-next.left {
+    transform: translateY(0px) scale(0.8);
+    z-index: 1;
+  }
+  .slide-next.center {
+    z-index: 2;
+  }
+  .slide-next.right {
+    animation: jump 0.6s ease-in-out forwards;
+  }
+  
+  .slide-prev.left {
+    animation: jump 0.6s ease-in forwards;
+  }
+  /* .slide-prev.center {
+    transform: translateX(150%) scale(0.8);
+  } */
+  .slide-prev.right {
+    transform: translateY(0px) scale(0.8);
+  }
+  
+  .controls {
+    position: absolute;
+    bottom: -60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .arrowBtn {
+    padding: 10px 25px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.5s;
+  }
+  
+  .arrowBtn:hover {
+    background: #3498db;
+    transform: translateY(-3px);
+  }
+
+  /* End of style in image slider */
   
 }
