@@ -100,7 +100,6 @@
   /* Apply keyframe animation on hover */
   .center:hover {
     z-index: 4; /* Ensure it's on top of other cards */
-    filter: brightness(1.2); /* Increase brightness on hover */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow to give depth */
     transform: scale(1.05);
   }

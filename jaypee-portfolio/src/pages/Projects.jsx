@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaInfoCircle, FaLink } from "react-icons/fa";
+import { GoArrowLeft, GoArrowRight  } from "react-icons/go";
 import { projectData } from "../utils/data";
 import { motion } from "framer-motion"; // Import Framer Motion
 
@@ -50,10 +51,10 @@ const Projects = () => {
   const currentProject = projectData[centerIndex];
 
   return (
-    <section className="containerLayout flex flex-col items-center justify-center py-16">
+    <section className="containerLayout flex flex-col items-center justify-center py-16 px-4">
       {/* Slider */}
       <motion.div
-        className="slider-container relative"
+        className="slider-container flex justify-center items-center gap-4 w-full max-w-xl px-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -87,18 +88,18 @@ const Projects = () => {
       </motion.div>
 
       {/* Slider Controls */}
-      <div className="flex justify-center gap-4 mt-10">
+      <div className="flex justify-center gap-10 mt-10">
         <button
           onClick={() => handleSlide("prev")}
-          className="arrowBtn px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800 transition"
+          className="arrowBtn px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-800 transition"
         >
-          ←
+          <GoArrowLeft />
         </button>
         <button
           onClick={() => handleSlide("next")}
-          className="arrowBtn px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800 transition"
+          className="arrowBtn px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-800 transition"
         >
-          →
+          <GoArrowRight />
         </button>
       </div>
 
@@ -110,7 +111,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
         >
           {currentProject.title}
         </motion.h2>
