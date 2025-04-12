@@ -17,7 +17,7 @@ const textAnimation = (text, delay) => {
 
 const Loader = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-[#1A1A1A] bg-image  font-bold">
+    <div className="flex flex-col items-center justify-center h-screen bg-[#1A1A1A] bg-image font-bold">
       <motion.div className="overflow-hidden text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl">{textAnimation("JOHN PAUL", 1)}</motion.div>
       <motion.div className="overflow-hidden text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl">{textAnimation("JAMITO", 2)}</motion.div>
       <motion.div className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl overflow-hidden text-yellow-500">{textAnimation("PORTFOLIO", 3)}</motion.div>
