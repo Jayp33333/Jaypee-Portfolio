@@ -1,41 +1,14 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const cornerPositions = [
-  { top: 0, left: 0, origin: "top left" },
-  { top: 0, right: 0, origin: "top right" },
-  { bottom: 0, left: 0, origin: "bottom left" },
-  { bottom: 0, right: 0, origin: "bottom right" },
-];
-
 const Sparkle = () => {
-  const [activeStrikes, setActiveStrikes] = useState([]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * cornerPositions.length);
-      const strike = {
-        ...cornerPositions[randomIndex],
-        id: Date.now(),
-        x: Math.random() * 50 - 25, // Adds slight horizontal movement
-        y: 100, // Falling from the center to the corner
-      };
-      setActiveStrikes((prevStrikes) => [...prevStrikes, strike]);
-
-      // Remove lightning after animation
-      setTimeout(() => {
-        setActiveStrikes((prevStrikes) => prevStrikes.filter((s) => s.id !== strike.id));
-      }, 1000); // remove after 0.8s
-    }, 2000); // every 0.3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+  const numberOfDots = 20;
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      {/* Electric glow at center */}
+      {/* Center Glow */}
       <motion.div
-        className="absolute top-[30%] left-[30%] w-[500px] h-[500px] bg-blue-500/20 blur-3xl rounded-full"
+        className="absolute top-[30%] left-[30%] w-[500px] h-[500px] bg-gray-500/20 blur-3xl rounded-full"
         style={{ transform: "translate(50%, 50%)" }}
         animate={{
           scale: [1, 1.2, 1],
@@ -48,30 +21,37 @@ const Sparkle = () => {
         }}
       />
 
-      {/* Optional sparkles for extra vibe */}
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-[2px] h-[2px] bg-white rounded-full"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          initial={{ opacity: 0.2, scale: 0.5 }}
-          animate={{
-            opacity: [0.2, 0.8, 0.2],
-            scale: [0.5, 1.5, 0.5],
-            x: [Math.random() * 100 - 50, Math.random() * 100 - 50], // Random horizontal movement
-            y: [Math.random() * 100 - 50, Math.random() * 100 - 50], // Random vertical movement
-          }}
-          transition={{
-            duration: 6, // Slower movement duration
-            repeat: Infinity,
-            ease: "easeInOut", // Smooth, easing movement
-            delay: i * 0.3, // Slight delay for staggering animation
-          }}
-        />
-      ))}
+      {/* Circulating dots */}
+      {[...Array(numberOfDots)].map((_, i) => {
+        const radius = 150 + Math.random() * 100; // random orbit radius
+        const duration = 6 + Math.random() * 4; // random speed
+        const angleOffset = Math.random() * 360; // unique start angle for each
+
+        return (
+          <motion.div
+            key={i}
+            className="absolute w-[4px] h-[4px] bg-white rounded-full"
+            style={{
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+            animate={{
+              x: Array.from({ length: 360 }, (_, a) =>
+                radius * Math.cos((a + angleOffset) * (Math.PI / 180))
+              ),
+              y: Array.from({ length: 360 }, (_, a) =>
+                radius * Math.sin((a + angleOffset) * (Math.PI / 180))
+              ),
+            }}
+            transition={{
+              duration: duration,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        );
+      })}
     </div>
   );
 };

@@ -101,7 +101,7 @@ const Home = () => {
             animate="visible"
             exit="exit"
             transition={{delay: 4, duration: 0.5}}
-            className="text-center text-sm sm:text-md md:text-2xl lg:text-4xl bg-gradient-to-r from-gray-500 to-gray-900  text-transparent bg-clip-text mt-2 flex flex-wrap font-semibold"
+            className="text-center text-sm sm:text-md md:text-2xl lg:text-4xl bg-gradient-to-r from-gray-500 to-gray-800  text-transparent bg-clip-text mt-2 flex flex-wrap font-semibold"
           >
             {lines[index].split("").map((char, i) => (
               <motion.span key={i} variants={letter}>

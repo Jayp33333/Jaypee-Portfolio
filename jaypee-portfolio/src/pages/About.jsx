@@ -1,10 +1,12 @@
 import React from 'react';
 import { ABOUT_ME } from '../utils/data.js';
 import { motion } from 'framer-motion';
+import myPic from '../assets/images/my-pic.png'; // Import your image here
 
 const About = () => {
   return (
     <section className="w-full min-h-screen flex flex-col justify-center items-center px-10 sm:px-24 md:px-24 lg:px-32 py-12">
+     
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -13,6 +15,9 @@ const About = () => {
       >
         ABOUT ME
       </motion.h1>
+
+      {/* My Image */}
+      <img className='w-60 h-60 bg-[#171717] rounded-full m-5 backdrop-blur-10 bg-opacity-50' src={myPic} alt="John Paul Jamito Picture" />
 
       <div className="mt-6 max-w-4xl w-full">
         <motion.p
