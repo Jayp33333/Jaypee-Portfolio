@@ -1,43 +1,27 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-const TimelineCard = ({ title, institution, date, description, isFirst, innerRef }) => {
-  const { ref: textRef, inView: textInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  })
+const TimelineCard = ({ title, institution, date, description }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.6,
+    triggerOnce: false, // Keep triggering while it's in the viewport
+  });
 
   return (
-    <div ref={innerRef} className='relative pl-10 pb-48'>
-      {/* Animated Circle */}
-      <motion.div
-        className='absolute -left-[98px] top-0 z-20'
-        initial={{ opacity: 0, scale: 0.8, y: 30 }}
-        animate={textInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 30 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-      >
-        <div className='rounded-full bg-yellow-500 w-[41px] h-[41px] flex items-center justify-center'>
-          <div className='rounded-full bg-white w-[10px] h-[10px]'></div>
-        </div>
-      </motion.div>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }} // Start from faded and below
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Fade in and move up when in view
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-[#130b27] bg-opacity-50 rounded-xl shadow-xl p-6 max-w-2xl w-full"
+    >
+      <h3 className="text-yellow-500 text-2xl font-bold mb-2">{title}</h3>
+      <p className="text-gray-300 text-sm uppercase mb-1">{institution}</p>
+      <p className="text-gray-400 text-sm mb-4">{date}</p>
+      <p className="text-white text-sm">{description}</p>
+    </motion.div>
+  );
+};
 
-      {/* Connector line */}
-      <div className='absolute left-[0px] top-[12px] w-[2px] h-full bg-primary z-10'></div>
-
-      {/* Animated Text Content */}
-      <motion.div
-        ref={textRef}
-        initial={{ opacity: 0, y: 40 }}
-        animate={textInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <h3 className='text-[16px] sm:text-[2rem] text-white font-bold uppercase'>{title}</h3>
-        <p className='text-[12px] sm:text-[16px] text-gray-400 uppercase'>{institution}</p>
-        <p className='text-[12px] sm:text-[16px] text-yellow-500 font-semibold uppercase'>{date}</p>
-      </motion.div>
-    </div>
-  )
-}
-
-export default TimelineCard
+export default TimelineCard;
