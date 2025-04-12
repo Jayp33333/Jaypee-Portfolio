@@ -8,6 +8,7 @@ import Loader from "./components/Loader.jsx";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
+  //setLoaderTimeout
   useEffect(() => {
     const fakeDataFetch = () => {
       setTimeout(() => {
