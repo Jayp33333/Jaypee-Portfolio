@@ -32,12 +32,13 @@ export const SideBarLinks = [
   // { id: "06", label: "Contact", icon: FaEnvelope, path: "/contact", element: Contact },
 ];
 
-import Image_1 from "../assets/images/project-1.jpg";
-import Image_2 from "../assets/images/project-2.jpg";
-import Image_3 from "../assets/images/project-3.jpg";
-import Image_4 from "../assets/images/project-4.jpg";
-import Image_5 from "../assets/images/project-5.jpg";
-import Image_6 from "../assets/images/project-6.jpg";
+// import Image_1 from "../assets/images/project-1.jpg";
+// import Image_2 from "../assets/images/project-2.jpg";
+// import Image_3 from "../assets/images/project-3.jpg";
+// import Image_4 from "../assets/images/project-4.jpg";
+// import Image_5 from "../assets/images/project-5.jpg";
+// import Image_6 from "../assets/images/project-6.jpg";
+import SampleImg from "../assets/images/SampleImg.jpg";
 
 export const SKILLS = [
   {
@@ -130,91 +131,84 @@ I believe technology should make life easier, and that’s exactly what I aim to
 
 export const EDUCATION_TIMELINE = [
   {
-  id: 1,
-  title: "College - Diploma in Information Technology",
-  institution: "PUP Lopez Branch ",
-  duration: "2023 - Present",
-  description:
-    `A second year student experience
-    - Attended a 2-year program focused on technology and digital skills.
-    - Attended various hackathons, coding competitions, and web development workshops.
-    - Participated in various coding challenges, including the Google Code Jam, Codeforces, and LeetCode.`,
+    id: 1,
+    title: "Elementary School (Grades 1-2)",
+    institution: "Sumulong Elementary School",
+    duration: "2011 - 2013",
+    description: "Began formal education by learning basic literacy, numeracy, and classroom routines as a young learner.",
   },
   {
     id: 2,
-    title: "Senior High School - Information and Communication Technology",
-    institution: "Calauag National High School",
-    duration: "2021 - 2023",
-    description:
-      "Acquired a strong foundation in mathematics, science, and social studies. Gained valuable experience in problem-solving, critical thinking, and teamwork.",  
+    title: "Elementary School (Grades 3-6)",
+    institution: "Sumilang Elementary School",
+    duration: "2013 - 2017",
+    description: "Continued developing core academic skills in reading, writing, and math while becoming more confident and independent in learning.",
   },
   {
     id: 3,
-    title: "Junior High School - (Grade 7-10)",
+    title: "Junior High School",
     institution: "Calauag National High School",
     duration: "2017 - 2021",
-    description:
-      "Acquired basic knowledge in mathematics, reading, and writing. Gained valuable experience in problem-solving and critical thinking skills.",
+    description: "Focused on academic subjects and built a strong foundation in mathematics, science, and communication skills.",
   },
   {
     id: 4,
-    title: "Elementary School - (Grade 3-6)",
-    institution: "Sumilang Elementary School",
-    duration: "2013 - 2017",
-    description:
-      "Acquired basic knowledge in mathematics, reading, and writing. Gained valuable experience in problem-solving and critical thinking skills.",
+    title: "Senior High School - ICT Strand",
+    institution: "Calauag National High School",
+    duration: "2021 - 2023",
+    description: "Learned basic IT concepts, programming, and digital tools while strengthening critical thinking and collaboration skills.",
   },
   {
     id: 5,
-    title: "Elementary School - (Grade 1-2)",
-    institution: "Sumulong Elementary School",
-    duration: "2011 - 2013",
-    description:
-      "Acquired basic knowledge in mathematics, reading, and writing. Gained valuable experience in problem-solving and critical thinking skills.",
+    title: "College - Diploma in Information Technology",
+    institution: "Polytechnic University of the Philippines, Lopez Branch",
+    duration: "2023 - Present",
+    description: "Currently pursuing a diploma in Information Technology, gaining hands-on experience in programming, web development, and problem-solving.",
   }
 ];
+
 
 export const projectData = [
   {
     id: "01",
     title: "E-Commerce Website",
     description: "An online tech shop where users can buy gadgets and accessories.",
-    image: Image_1,
+    image: SampleImg,
     link: "https://example.com/ecommerce"
   },
   {
     id: "02",
     title: "Voting System",
     description: "A secure and user-friendly voting platform for school elections.",
-    image: Image_2,
+    image: SampleImg,
     link: "https://example.com/votingsystem"
   },
   {
     id: "03",
     title: "Daily Thoughts App",
     description: "Share your thoughts once a day. Built with MERN stack and social login.",
-    image: Image_3,
+    image: SampleImg,
     link: "https://example.com/thoughtsapp"
   },
   {
     id: "04",
     title: "Portfolio Website",
     description: "A personal portfolio to showcase my projects and skills.",
-    image: Image_4,
+    image: SampleImg,
     link: "https://example.com/portfolio"
   },
   {
     id: "05",
     title: "Chat Application",
     description: "A real-time chat application for seamless communication.",
-    image: Image_5,
+    image: SampleImg,
     link: "https://example.com/chatapp"
   },
   {
     id: "06",
     title: "Blog Website",
     description: "A platform to share articles and insights on various topics.",
-    image: Image_6,
+    image: SampleImg,
     link: "https://example.com/blogwebsite"
   },
 ];

@@ -2,6 +2,7 @@ import React from "react";
 import { EDUCATION_TIMELINE } from "../utils/data";
 import TimelineCard from "../components/TimelineCard";
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const Education = () => {
   const { ref: introRef, inView: isIntroVisible } = useInView({
@@ -12,18 +13,27 @@ const Education = () => {
   });
 
   return (
-    <section className="w-full h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+    <section className="w-full h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-yellow">
       {/* Header */}
       <div
         ref={introRef}
         className="snap-center h-screen flex flex-col justify-center items-center px-4 sm:px-8 md:px-16 relative"
       >
-        <h1 className="text-yellow-500 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-center mb-4">
+        <motion.h1 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0 }}
+        className="text-yellow-500 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-center mb-4">
           EDUCATION
-        </h1>
-        <p className="text-gray-400 text-center max-w-xl">
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-gray-400 text-center max-w-xl">
+          
           Scroll down to explore the timeline of my educational journey.
-        </p>
+        </motion.p>
 
         {/* Scroll Button */}
         {isIntroVisible && !isLastCardVisible && (
@@ -32,7 +42,7 @@ const Education = () => {
               const nextSection = document.getElementById("timeline-start");
               if (nextSection) nextSection.scrollIntoView({ behavior: "smooth" });
             }}
-            className="absolute bottom-10 flex flex-col items-center animate-bounce"
+            className="absolute bottom-32 flex flex-col items-center animate-bounce"
           >
             <span className="text-gray-300 text-sm mb-1">Scroll</span>
             <svg

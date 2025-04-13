@@ -154,5 +154,25 @@
   }
 
   /* End of style in image slider */
+  .scrollbar-yellow::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .scrollbar-yellow::-webkit-scrollbar-track {
+    background: #1f2937; /* Tailwind's gray-800 */
+  }
+
+  .scrollbar-yellow::-webkit-scrollbar-thumb {
+    background-color: #facc15; /* Tailwind's yellow-400 */
+    border-radius: 10px;
+    border: 2px solid #1f2937;
+  }
+
+  /* For Firefox */
+  .scrollbar-yellow {
+    scrollbar-width: thin;
+    scrollbar-color: #facc15 transparent;
+  }
+
   
 }

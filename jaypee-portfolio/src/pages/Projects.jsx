@@ -55,8 +55,8 @@ const Projects = () => {
       {/* Slider */}
       <motion.div
         className="slider-container flex justify-center items-center gap-4 w-full max-w-xl px-10"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         {[leftIndex, centerIndex, rightIndex].map((index, i) => {
@@ -89,18 +89,24 @@ const Projects = () => {
 
       {/* Slider Controls */}
       <div className="flex justify-center gap-10 mt-10">
-        <button
+        <motion.button
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           onClick={() => handleSlide("prev")}
-          className="arrowBtn px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-800 transition"
+          className="arrowBtn px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
         >
           <GoArrowLeft />
-        </button>
-        <button
+        </motion.button>
+        <motion.button
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           onClick={() => handleSlide("next")}
-          className="arrowBtn px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-800 transition"
+          className="arrowBtn px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
         >
           <GoArrowRight />
-        </button>
+        </motion.button>
       </div>
 
       {/* Current Project Actions */}
@@ -111,12 +117,17 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.5 }}
         >
           {currentProject.title}
         </motion.h2>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <motion.div className="flex flex-wrap justify-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          >
           <button
             className="bg-gray-900 text-white px-6 py-3 rounded hover:bg-gray-800 flex items-center gap-2 transition"
             onClick={() => handleShowDescription(currentProject.description)}
@@ -132,7 +143,7 @@ const Projects = () => {
             <FaLink className="text-xl" />
             Show Project
           </button>
-        </div>
+        </motion.div>
       </div>
 
       {/* Modal */}
@@ -143,8 +154,12 @@ const Projects = () => {
           aria-modal="true"
           onClick={closeModal}
         >
-          <div
-            className="bg-white p-6 rounded-lg w-96 max-w-full transition-transform transform scale-95 hover:scale-100 duration-200"
+          <motion.div
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white p-6 rounded-lg w-96 max-w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <h3 className="text-xl font-bold mb-4">Project Description</h3>
@@ -155,7 +170,7 @@ const Projects = () => {
             >
               Close
             </button>
-          </div>
+          </motion.div>
         </div>
       )}
     </section>
