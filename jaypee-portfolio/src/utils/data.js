@@ -38,7 +38,7 @@ export const SideBarLinks = [
 // import Image_4 from "../assets/images/project-4.jpg";
 // import Image_5 from "../assets/images/project-5.jpg";
 // import Image_6 from "../assets/images/project-6.jpg";
-import SampleImg from "../assets/images/SampleImg.jpg";
+import SampleImg from "../assets/images/sampleImg.jpg";
 
 export const SKILLS = [
   {
