@@ -5,7 +5,7 @@ import myPic from '../assets/images/my-pic.png'; // Import your image here
 
 const About = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center px-10 sm:px-24 md:px-24 lg:px-32 py-12">
+    <section className="w-full h-[100dvh] flex flex-col justify-center items-center px-10 sm:px-24 md:px-24 lg:px-32 py-12">
      
       <motion.h1
         initial={{ opacity: 0, y: -50 }}

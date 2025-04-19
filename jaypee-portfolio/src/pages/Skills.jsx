@@ -19,7 +19,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section className="container mx-auto flex items-center justify-center min-h-screen ">
+    <section className="container mx-auto flex items-center justify-center h-[100dvh] ">
       <div className="relative w-[90vw] max-w-[600px] aspect-square rounded-full border-4 border-gray-700 flex items-center justify-center sm:ml-20 md:ml-16 lg:ml-0">
         {/* Title in the center */}
         <motion.div
