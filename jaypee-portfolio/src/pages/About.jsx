@@ -28,7 +28,7 @@ const About = () => {
           {/* Socials */}
           <div className="flex gap-5 mt-6">
             <motion.a
-              href="https://github.com/yourusername"
+              href="https://github.com/Jayp33333"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
@@ -37,7 +37,7 @@ const About = () => {
               <FaGithub className="w-6 h-6 text-white hover:text-black" />
             </motion.a>
             <motion.a
-              href="https://instagram.com/yourusername"
+              href="https://www.instagram.com/jay_p33333/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
@@ -46,7 +46,7 @@ const About = () => {
               <FaInstagram className="w-6 h-6 text-white hover:text-black" />
             </motion.a>
             <motion.a
-              href="https://facebook.com/yourusername"
+              href="https://www.facebook.com/johnpaul.jamito.585"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
