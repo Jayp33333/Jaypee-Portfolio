@@ -1,88 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SKILLS } from "../utils/data.js";
 import { motion } from "framer-motion";
 
 const Skills = () => {
-  const [translateY, setTranslateY] = useState("0");
-
-  // Dynamically update translateY based on container size
-  useEffect(() => {
-    const handleResize = () => {
-      const size = Math.min(window.innerWidth, window.innerHeight);
-      const distance = size * 0.28; // 35% outward from center
-      setTranslateY(`-${distance}px`);
-    };
-
-    handleResize(); // Set on initial load
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <section className="container mx-auto flex items-center justify-center h-[100dvh] ">
-      <div className="relative w-[90vw] max-w-[600px] aspect-square rounded-full border-4 border-gray-700 flex items-center justify-center sm:ml-20 md:ml-16 lg:ml-0">
-        {/* Title in the center */}
-        <motion.div
-          className="absolute flex flex-col justify-center items-center text-white text-center font-semibold text-[clamp(1rem,3vw,1.8rem)] px-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 25,
-            duration: 1,
-            delay: 2,
-          }}
-        >
-          <p>TECH STACK</p>
-          <p>SKILLS & TOOLS</p>
-        </motion.div>
+    <section className="relative w-full min-h-[100dvh] flex flex-col justify-center items-center px-6 py-20 overflow-hidden">
+      {/* Background Accent Glow */}
+      <div className="absolute inset-0">
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl" />
+      </div>
 
-        {/* Rotating skill ring */}
-        <motion.div
-          className="absolute w-full h-full rounded-full flex items-center justify-center"
-          initial={{ rotate: 0 }}
-          animate={{ rotate: 360 }}
-          transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 10,
-            duration: 5,
-          }}
-        >
-          {SKILLS.map((skill, index) => {
-            const angle = (360 / SKILLS.length) * index;
-            const transformStyle = {
-              transform: `rotate(${angle}deg) translateY(${translateY}) rotate(-${angle}deg)`,
-              position: "absolute",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            };
+      {/* Section Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center text-white tracking-wide mb-14"
+      >
+        My <span className="text-yellow-400">Tech Stack</span>
+        <div className="mt-4 h-1 w-24 bg-yellow-400 mx-auto rounded-full" />
+      </motion.h2>
 
-            return (
-              <motion.div
-                key={index}
-                className="w-[clamp(2.3rem,2vw,3rem)] h-[clamp(2.3rem,2vw,3rem)] sm:w-[clamp(3rem,4vw,8rem)]  sm:h-[clamp(3rem,4vw,8rem)] bg-gradient-to-r from-gray-800 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg"
-                style={transformStyle}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 25,
-                  duration: 1,
-                  delay: index * 0.15,
-                }}
-              >
-                <skill.icon className="text-[clamp(1.2rem,4vw,2rem)] text-yellow-500 mb-1" />
-                <p className="text-[clamp(5px,1.2vw,10px)] font-black absolute top-[90%] text-center  z-10">
-                  {skill.skill}
-                </p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+      {/* Skills Grid */}
+      <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 max-w-7xl">
+        {SKILLS.map((skill, index) => (
+          <motion.div
+            key={index}
+            className="group flex flex-col items-center justify-center p-6 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 shadow-md hover:shadow-yellow-500/30 transition-all duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.08,
+              type: "spring",
+              stiffness: 100,
+            }}
+            whileHover={{ scale: 1.08, rotate: 2 }}
+          >
+            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+              <skill.icon className="text-3xl text-white" />
+            </div>
+            <p className="text-white font-medium tracking-wide text-sm sm:text-base text-center group-hover:text-yellow-400 transition-colors duration-300">
+              {skill.skill}
+            </p>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

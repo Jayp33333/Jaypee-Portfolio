@@ -4,7 +4,7 @@ import Sparkle from "../components/Sparkle.jsx";
 
 const Home = () => {
   const lines = [
-    "IT Student at Polytechnic University of the Philippines",
+    "IT Student at PUP Lopez Campus",
     "Your Friendly Neighborhood Tech Enthusiast",
     "Always learning, always creating!"
   ];
