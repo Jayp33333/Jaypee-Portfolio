@@ -99,7 +99,7 @@ const About = () => {
             animate={mainControls}
             className="text-gray-300 text-sm xs:text-base text-center md:text-left"
           >
-            IT Student • Aspiring Web Developer
+            IT Student • Web Developer
           </motion.p>
 
           {/* Socials */}
@@ -120,7 +120,7 @@ const About = () => {
                 transition: { duration: 0.2 }
               }}
               whileTap={{ scale: 0.95 }}
-              className="p-3 rounded-full bg-white/10 hover:bg-yellow-500 transition-colors duration-300 shadow-md"
+              className="p-3 rounded-full bg-white/10 hover:bg-purple-600/20 transition-colors duration-300 shadow-md"
             >
               <FaGithub className="w-5 h-5 xs:w-6 xs:h-6 text-white hover:text-black" />
             </motion.a>
@@ -136,7 +136,7 @@ const About = () => {
                 transition: { duration: 0.2 }
               }}
               whileTap={{ scale: 0.95 }}
-              className="p-3 rounded-full bg-white/10 hover:bg-yellow-500 transition-colors duration-300 shadow-md"
+              className="p-3 rounded-full bg-white/10 hover:bg-pink-600 transition-colors duration-300 shadow-md"
             >
               <FaInstagram className="w-5 h-5 xs:w-6 xs:h-6 text-white hover:text-black" />
             </motion.a>
@@ -152,7 +152,7 @@ const About = () => {
                 transition: { duration: 0.2 }
               }}
               whileTap={{ scale: 0.95 }}
-              className="p-3 rounded-full bg-white/10 hover:bg-yellow-500 transition-colors duration-300 shadow-md"
+              className="p-3 rounded-full bg-white/10 hover:bg-blue-500 transition-colors duration-300 shadow-md"
             >
               <FaFacebook className="w-5 h-5 xs:w-6 xs:h-6 text-white hover:text-black" />
             </motion.a>
