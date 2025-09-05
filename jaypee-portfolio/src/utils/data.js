@@ -224,7 +224,7 @@ export const projectData = [
   },
   {
     id: "03",
-    title: "Eccomerce Website",
+    title: "E-commerce Website",
     description:
       "Tech Shop is a modern e-commerce website dedicated to providing a diverse selection of technology products through a clean, reliable, and user-friendly platform. The project emphasizes both variety and convenience, aiming to connect customers with the latest gadgets, accessories, and digital essentials in one accessible online store.",
     image: eccomerce,
