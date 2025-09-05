@@ -182,22 +182,7 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div 
-          className="absolute bottom-8 flex flex-col items-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5, duration: 0.8 }}
-        >
-          <span className="text-sm text-gray-400 mb-2">Scroll down</span>
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-1 h-3 bg-gray-400 rounded-full mt-2"
-            />
-          </div>
-        </motion.div>
+       
       </div>
     </section>
   );

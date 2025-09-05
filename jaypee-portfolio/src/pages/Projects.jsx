@@ -149,7 +149,7 @@ const Projects = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              className="w-full p-6 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 backdrop-blur-md border border-white/10 shadow-2xl transform-style-preserve-3d"
+              className="w-full p-6 rounded-2xl bg-gradient-to-br from-black/80 to-gray-900 backdrop-blur-md border border-white/10 shadow-2xl transform-style-preserve-3d"
             >
               <div className="w-full h-52 rounded-xl overflow-hidden shadow-lg mb-5">
                 <img
@@ -214,21 +214,27 @@ const Projects = () => {
       </div>
 
       {/* Indicators */}
-      <div className="flex justify-center gap-2 mt-8 mb-6">
-        {projectData.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleProjectClick(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === current ? "bg-yellow-500 scale-125" : "bg-white/30"
-            }`}
-          />
-        ))}
-      </div>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 , duration: 0.8 }}
+        className="flex justify-center gap-2 mt-8 mb-6">
+          {projectData.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleProjectClick(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === current ? "bg-yellow-500 scale-125" : "bg-white/30"
+              }`}
+            />
+          ))}
+      </motion.div>
 
       {/* Controls */}
       <div className="flex justify-center gap-8">
         <motion.button
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => handleSlide("prev")}
@@ -237,6 +243,8 @@ const Projects = () => {
           <GoArrowLeft size={24} />
         </motion.button>
         <motion.button
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => handleSlide("next")}
