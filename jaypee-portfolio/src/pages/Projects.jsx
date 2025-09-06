@@ -3,6 +3,7 @@ import { FaInfoCircle, FaLink, FaGithub } from "react-icons/fa";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { projectData } from "../utils/data";
 import { motion, AnimatePresence } from "framer-motion";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 const Projects = () => {
   const [current, setCurrent] = useState(0);
@@ -102,6 +103,7 @@ const Projects = () => {
 
   return (
     <section className="relative containerLayout w-full flex flex-col items-center justify-center py-20 px-6 overflow-hidden">
+      <ParticlesBackground />
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: -30 }}

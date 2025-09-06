@@ -3,6 +3,7 @@ import { ABOUT_ME } from "../utils/data.js";
 import { motion, useInView, useAnimation } from "framer-motion";
 import myPic from "../assets/images/jaypee.jpg";
 import { FaGithub, FaFacebook, FaInstagram, FaDownload } from "react-icons/fa";
+import ParticlesBackground from "../components/ParticlesBackground.jsx";
 
 const About = () => {
   const ref = useRef(null);
@@ -62,6 +63,7 @@ const About = () => {
       ref={ref}
       className="w-full min-h-[100dvh] flex justify-center items-center px-4 xs:px-6 sm:px-12 md:px-24 lg:px-32 py-12 sm:py-16"
     >
+      <ParticlesBackground />
       <motion.div
         variants={fadeIn}
         initial="hidden"

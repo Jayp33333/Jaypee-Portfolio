@@ -1,15 +1,14 @@
 import React from "react";
 import { SKILLS } from "../utils/data.js";
 import { motion } from "framer-motion";
+import ParticlesBackground from "../components/ParticlesBackground.jsx";
 
 const Skills = () => {
   return (
     <section className="relative w-full min-h-[100dvh] flex flex-col justify-center items-center px-6 py-20 overflow-hidden">
-      {/* Background Accent Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl" />
-      </div>
+      
+
+      <ParticlesBackground />
 
       {/* Section Title */}
       <motion.h2

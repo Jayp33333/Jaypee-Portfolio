@@ -13,7 +13,7 @@ const App = () => {
     const fakeDataFetch = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 4000);
+      }, 3000);
     };
     fakeDataFetch();
   }, []);
@@ -21,14 +21,7 @@ const App = () => {
   return (
     <AnimatePresence mode="wait">
       {isLoading ? (
-        <motion.div
-          key="loader"
-          initial={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 2 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        >
           <Loader />
-        </motion.div>
       ) : (
         <motion.div
           key="content"

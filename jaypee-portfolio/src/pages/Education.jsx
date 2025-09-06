@@ -2,6 +2,7 @@ import React from "react";
 import { EDUCATION_TIMELINE } from "../utils/data";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 const Education = () => {
 
@@ -11,6 +12,7 @@ const Education = () => {
       <div
         className="snap-center h-screen flex flex-col justify-center items-center px-4 sm:px-8 md:px-16 relative"
       >
+        <ParticlesBackground />
         <motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
