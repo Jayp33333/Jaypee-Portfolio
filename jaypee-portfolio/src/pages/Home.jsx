@@ -62,7 +62,7 @@ const Home = () => {
           transition={{ delay: 1.5, duration: 0.5 }}
         >
           <motion.a 
-            href="https://github.com" 
+            href="https://github.com/Jayp33333" 
             target="_blank"
             whileHover={{ scale: 1.1 }}
             className="p-2 bg-gray-800/50 backdrop-blur-md rounded-full border border-gray-700/30 hover:bg-purple-600/20 transition-all"
@@ -78,7 +78,7 @@ const Home = () => {
             <FaLinkedin className="text-xl" />
           </motion.a>
           <motion.a 
-            href="mailto:johnpaul@example.com"
+            href="mailto:johnpauljamito5@gmail.com"
             whileHover={{ scale: 1.1 }}
             className="p-2 bg-gray-800/50 backdrop-blur-md rounded-full border border-gray-700/30 hover:bg-purple-600/20 transition-all"
           >
