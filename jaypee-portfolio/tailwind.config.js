@@ -5,10 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: ["Roboto", "sans-serif"],       // body / description
+        heading: ["Orbitron", "sans-serif"],  // headers / titles
+      },
+    },
   },
   plugins: [
     require('tailwind-scrollbar'),
   ],
-}
-
+};

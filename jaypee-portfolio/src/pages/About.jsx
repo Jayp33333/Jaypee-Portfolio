@@ -15,9 +15,7 @@ const About = () => {
   useEffect(() => {
     if (isInView) {
       mainControls.start("visible");
-      // Stagger the social icons animation
       socialControls.start("visible");
-      // Content appears after the profile
       contentControls.start("visible");
     }
   }, [isInView, mainControls, socialControls, contentControls]);
@@ -61,14 +59,14 @@ const About = () => {
   return (
     <section 
       ref={ref}
-      className="w-full min-h-[100dvh] flex justify-center items-center px-4 xs:px-6 sm:px-12 md:px-24 lg:px-32 py-12 sm:py-16"
+      className="w-full min-h-[100dvh] flex justify-center items-center px-4 xs:px-6 sm:px-12 md:px-24 lg:px-32 py-12 sm:py-16 bg-black text-white"
     >
       <ParticlesBackground />
       <motion.div
         variants={fadeIn}
         initial="hidden"
         animate={mainControls}
-        className="max-w-5xl w-full bg-white/5 backdrop-blur-lg border border-white/10 shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 md:gap-10"
+        className="max-w-5xl w-full bg-white text-black backdrop-blur-lg border border-black/10 shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 md:gap-10"
       >
         {/* Left - Profile */}
         <div className="flex flex-col items-center md:items-start">
@@ -80,17 +78,17 @@ const About = () => {
             alt="John Paul Jamito"
             whileHover={{ 
               scale: 1.05,
-              boxShadow: "0 0 20px rgba(234, 179, 8, 0.5)"
+              boxShadow: "0 0 20px rgba(0, 0, 0, 0.5)"
             }}
             transition={{ duration: 0.3 }}
-            className="w-40 h-40 xs:w-44 xs:h-44 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-yellow-500 shadow-lg"
+            className="w-40 h-40 xs:w-44 xs:h-44 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-black shadow-lg"
           />
           
           <motion.h2 
             variants={fadeIn}
             initial="hidden"
             animate={mainControls}
-            className="mt-6 text-xl xs:text-2xl font-bold text-yellow-500 text-center md:text-left"
+            className="mt-6 text-xl xs:text-2xl font-bold text-black text-center md:text-left"
           >
             John Paul Jamito
           </motion.h2>
@@ -99,7 +97,7 @@ const About = () => {
             variants={fadeIn}
             initial="hidden"
             animate={mainControls}
-            className="text-gray-300 text-sm xs:text-base text-center md:text-left"
+            className="text-gray-700 text-sm xs:text-base text-center md:text-left"
           >
             IT Student • Web Developer
           </motion.p>
@@ -116,15 +114,11 @@ const About = () => {
               href="https://github.com/Jayp33333"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ 
-                scale: 1.2,
-                rotate: 5,
-                transition: { duration: 0.2 }
-              }}
+              whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="p-3 rounded-full bg-white/10 hover:bg-purple-600/20 transition-colors duration-300 shadow-md"
+              className="p-3 rounded-full bg-black text-white hover:bg-gray-200 hover:text-black transition-colors duration-300 shadow-md"
             >
-              <FaGithub className="w-5 h-5 xs:w-6 xs:h-6 text-white hover:text-black" />
+              <FaGithub className="w-5 h-5 xs:w-6 xs:h-6" />
             </motion.a>
             
             <motion.a
@@ -132,15 +126,11 @@ const About = () => {
               href="https://www.instagram.com/jay_p33333/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ 
-                scale: 1.2,
-                rotate: 5,
-                transition: { duration: 0.2 }
-              }}
+              whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="p-3 rounded-full bg-white/10 hover:bg-pink-600 transition-colors duration-300 shadow-md"
+              className="p-3 rounded-full bg-black text-white hover:bg-gray-200 hover:text-black transition-colors duration-300 shadow-md"
             >
-              <FaInstagram className="w-5 h-5 xs:w-6 xs:h-6 text-white hover:text-black" />
+              <FaInstagram className="w-5 h-5 xs:w-6 xs:h-6" />
             </motion.a>
             
             <motion.a
@@ -148,15 +138,11 @@ const About = () => {
               href="https://www.facebook.com/johnpaul.jamito.585"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ 
-                scale: 1.2,
-                rotate: 5,
-                transition: { duration: 0.2 }
-              }}
+              whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="p-3 rounded-full bg-white/10 hover:bg-blue-500 transition-colors duration-300 shadow-md"
+              className="p-3 rounded-full bg-black text-white hover:bg-gray-200 hover:text-black transition-colors duration-300 shadow-md"
             >
-              <FaFacebook className="w-5 h-5 xs:w-6 xs:h-6 text-white hover:text-black" />
+              <FaFacebook className="w-5 h-5 xs:w-6 xs:h-6" />
             </motion.a>
           </motion.div>
         </div>
@@ -172,7 +158,7 @@ const About = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-500 mb-4 sm:mb-6"
+            className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6"
           >
             ABOUT ME
           </motion.h1>
@@ -181,7 +167,7 @@ const About = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed text-justify"
+            className="text-gray-800 font-sans text-sm sm:text-base lg:text-lg leading-relaxed text-justify font-inter"
           >
             {ABOUT_ME.content}
           </motion.p>
@@ -193,12 +179,9 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 5px 15px rgba(234, 179, 8, 0.4)"
-            }}
+            whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.4)" }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 mt-6 sm:mt-8 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-yellow-500 text-black font-semibold shadow-md hover:bg-yellow-400 transition-colors duration-300"
+            className="inline-flex items-center gap-2 mt-6 sm:mt-8 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-black text-white font-semibold shadow-md hover:bg-gray-800 transition-colors duration-300"
           >
             <FaDownload className="w-4 h-4" />
             Download Resume

@@ -7,7 +7,13 @@ import TypingTagline from "../components/TypingTagline";
 
 const Home = () => {
   return (
-    <section className="relative w-full min-h-screen text-white overflow-hidden">
+    <motion.section 
+      className="relative w-full min-h-screen text-white overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1}}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      exit={{ opacity: 0 }}
+      >
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
@@ -21,7 +27,7 @@ const Home = () => {
           className="fixed top-6 right-6 z-50 flex flex-col gap-4"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
         >
           <motion.a
             href="https://github.com/Jayp33333"
@@ -53,10 +59,10 @@ const Home = () => {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center text-xl md:text-2xl font-light text-gray-300 tracking-wider"
           >
-            HELLO, I'M
+            Hello, I'm
           </motion.h1>
 
           <div className="flex flex-row items-center justify-center my-8 md:my-1 z-10">
@@ -64,7 +70,7 @@ const Home = () => {
               className="relative flex items-center justify-center"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.1, type: 'spring', stiffness: 100 }}
+              transition={{ duration: 0.8, delay: 0.8, type: 'spring', stiffness: 100 }}
             >
               {/* Decorative frame */}
               <div className="absolute inset-0 rounded-lg">
@@ -93,7 +99,7 @@ const Home = () => {
               <motion.h2
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]"
               >
                 OHN PAUL
@@ -101,7 +107,7 @@ const Home = () => {
               <motion.h2
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]"
               >
                 AMITO
@@ -126,7 +132,7 @@ const Home = () => {
             className="flex flex-wrap gap-4 justify-center mt-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.a
               whileHover={{ scale: 1.05 }}
@@ -148,7 +154,7 @@ const Home = () => {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
