@@ -23,12 +23,7 @@ const App = () => {
       {isLoading ? (
           <Loader />
       ) : (
-        <motion.div
-          key="content"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+        <div
           className="container mx-auto min-h-[100vh] relative"
         >
           <SideBar />
@@ -37,7 +32,7 @@ const App = () => {
               <Route key={link.id} path={link.path} element={<link.element />} />
             ))}
           </Routes>
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );
