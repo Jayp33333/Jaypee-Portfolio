@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SideBarLinks } from "../utils/data";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -18,8 +18,9 @@ const itemVariants = {
 };
 
 const SideBar = () => {
-  const [isOpen, setIsOpen] = useState(window.innerWidth >= 640); // Show sidebar by default on desktop
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  const [isOpen, setIsOpen] = useState(window.innerWidth >= 1024);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const location = useLocation(); // Get current route
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const handleLinkClick = () => {
@@ -29,9 +30,9 @@ const SideBar = () => {
   // Handle screen resize
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < 640;
+      const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
-      setIsOpen(!mobile); // Auto open on desktop/tablet, close on mobile
+      setIsOpen(!mobile);
     };
 
     window.addEventListener("resize", handleResize);
@@ -86,9 +87,12 @@ const SideBar = () => {
               h-screen sm:h-auto 
               w-auto max-w-[260px] sm:w-auto
               p-6 sm:p-4 
-              sm:bg-[#171717]  rounded-xl
               flex flex-col 
               sm:fixed sm:top-[30%] sm:left-4 sm:-translate-y-1/2
+              backdrop-blur-xl bg-black/30
+              border border-white/10
+              shadow-lg shadow-black/20
+              sm:rounded-2xl
             `}
           >
             <motion.ul
@@ -98,28 +102,39 @@ const SideBar = () => {
               exit="hidden"
               className="flex flex-col justify-start text-white mt-16 sm:mt-0 text-sm sm:text-[16px] space-y-6 sm:space-y-4"
             >
-              {SideBarLinks.map((item) => (
-                <motion.li key={item.id} variants={itemVariants}>
-                  <Link
-                    to={item.path}
-                    onClick={handleLinkClick}
-                    className="group relative flex flex-col items-center gap-2 rounded-full bg-[#262626] hover:shadow-xl transform transition-transform duration-300 hover:scale-125 active:scale-95 p-2"
-                  >
-                    <item.icon className="text-xl sm:text-2xl shadow-md hover:shadow-lg transition-shadow duration-300 text-gray-400 hover:text-white" />
-                    <span
-                      className="
-                        absolute left-full ml-2 px-2 py-1 
-                        bg-[#262626] text-white text-xs rounded 
-                        opacity-0 group-hover:opacity-100 
-                        whitespace-nowrap pointer-events-none 
-                        transition-opacity duration-300 z-50
-                      "
+              {SideBarLinks.map((item) => {
+                const isActive = location.pathname === item.path;
+                
+                return (
+                  <motion.li key={item.id} variants={itemVariants}>
+                    <Link
+                      to={item.path}
+                      onClick={handleLinkClick}
+                      className={`group relative flex flex-col items-center gap-2 rounded-full transform transition-all duration-300 p-3
+                        ${isActive 
+                          ? "bg-white/20 border-white/30 text-white scale-110" 
+                          : "bg-white/5 border-white/5 text-gray-300 hover:bg-white/10 hover:border-white/20 hover:scale-110"
+                        }
+                        border backdrop-blur-sm active:scale-95
+                      `}
                     >
-                      {item.label}
-                    </span>
-                  </Link>
-                </motion.li>
-              ))}
+                      <item.icon className={`text-xl sm:text-2xl transition-all duration-300 ${isActive ? "text-white" : "text-gray-300 group-hover:text-white"}`} />
+                      <span
+                        className="
+                          absolute left-full ml-2 px-2 py-1 
+                          bg-black/70 text-white text-xs rounded 
+                          opacity-0 group-hover:opacity-100 
+                          whitespace-nowrap pointer-events-none 
+                          transition-opacity duration-300 z-50
+                          backdrop-blur-sm
+                        "
+                      >
+                        {item.label}
+                      </span>
+                    </Link>
+                  </motion.li>
+                );
+              })}
             </motion.ul>
           </motion.div>
         )}

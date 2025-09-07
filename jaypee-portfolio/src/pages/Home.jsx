@@ -1,14 +1,14 @@
 // src/pages/Home.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload, FaInstagram, FaFacebook } from "react-icons/fa";
 import ParticlesBackground from "../components/ParticlesBackground";
 import TypingTagline from "../components/TypingTagline";
 
 const Home = () => {
   return (
     <motion.section 
-      className="relative w-full min-h-screen text-white overflow-hidden"
+      className="relative w-full h-[100dvh] text-white overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1}}
       transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -38,12 +38,20 @@ const Home = () => {
             <FaGithub className="text-xl" />
           </motion.a>
           <motion.a
-            href="https://linkedin.com"
+            href="https://www.instagram.com/jay_p33333/"
             target="_blank"
             whileHover={{ scale: 1.1 }}
             className="p-2 bg-white/5 backdrop-blur-md rounded-full border border-white/10 hover:bg-white/10 transition-all"
           >
-            <FaLinkedin className="text-xl" />
+            <FaInstagram className="text-xl" />
+          </motion.a>
+          <motion.a
+            href="https://www.facebook.com/johnpaul.jamito.585"
+            target="_blank"
+            whileHover={{ scale: 1.1 }}
+            className="p-2 bg-white/5 backdrop-blur-md rounded-full border border-white/10 hover:bg-white/10 transition-all"
+          >
+            <FaFacebook className="text-xl" />
           </motion.a>
           <motion.a
             href="mailto:johnpauljamito5@gmail.com"
@@ -137,8 +145,8 @@ const Home = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#contact"
-              className="px-6 py-3 bg-white text-black rounded-lg font-medium flex items-center gap-2 shadow-lg hover:bg-gray-100 transition-all border border-white"
+              href="mailto:johnpauljamito5@gmail.com"
+              className="px-6 py-3 bg-white text-black rounded-lg font-medium flex items-center gap-2 shadow-lg hover:bg-gray-100 transition-all border border-white z-10"
             >
               <FaEnvelope className="text-sm" /> Get In Touch
             </motion.a>
@@ -147,7 +155,7 @@ const Home = () => {
               whileTap={{ scale: 0.95 }}
               href="/resume.pdf"
               download
-              className="px-6 py-3 bg-transparent backdrop-blur-md border border-white/30 rounded-lg font-medium flex items-center gap-2 hover:bg-white/10 transition-all"
+              className="px-6 py-3 bg-transparent backdrop-blur-md border border-white/30 rounded-lg font-medium flex items-center gap-2 hover:bg-white/10 transition-all z-10"
             >
               <FaFileDownload className="text-sm" /> Download CV
             </motion.a>
