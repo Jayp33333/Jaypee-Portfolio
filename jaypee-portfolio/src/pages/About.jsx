@@ -18,8 +18,22 @@ import {
   FaBasketballBall,
   FaBiking,
   FaBars,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaFigma,
 } from "react-icons/fa";
+import {
+  SiCanva,
+  SiAdobephotoshop,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+} from "react-icons/si";
 import ParticlesBackground from "../components/ParticlesBackground.jsx";
+import { EDUCATION_TIMELINE } from "../utils/data";
 
 const About = () => {
   const ref = useRef(null);
@@ -54,6 +68,75 @@ const About = () => {
     { name: "Basketball", icon: <FaBasketballBall /> },
     { name: "Biking", icon: <FaBiking /> },
   ];
+
+  // Skills data
+  const skillsData = {
+    webDevelopment: {
+      title: "Website Development",
+      technologies: [
+        {
+          name: "HTML",
+          icon: <FaHtml5 className="text-orange-500" />,
+          level: 90,
+        },
+        {
+          name: "CSS",
+          icon: <FaCss3Alt className="text-blue-500" />,
+          level: 85,
+        },
+        {
+          name: "JavaScript",
+          icon: <FaJs className="text-yellow-400" />,
+          level: 80,
+        },
+        {
+          name: "React",
+          icon: <FaReact className="text-blue-400" />,
+          level: 75,
+        },
+        {
+          name: "Node.js",
+          icon: <SiNodedotjs className="text-green-500" />,
+          level: 70,
+        },
+        {
+          name: "Express",
+          icon: <SiExpress className="text-gray-400" />,
+          level: 70,
+        },
+        {
+          name: "MongoDB",
+          icon: <SiMongodb className="text-green-600" />,
+          level: 65,
+        },
+        {
+          name: "Tailwind CSS",
+          icon: <SiTailwindcss className="text-cyan-400" />,
+          level: 85,
+        },
+      ],
+    },
+    uiUxDesign: {
+      title: "UI/UX Design",
+      technologies: [
+        {
+          name: "Figma",
+          icon: <FaFigma className="text-purple-500" />,
+          level: 80,
+        },
+        {
+          name: "Canva",
+          icon: <SiCanva className="text-blue-400" />,
+          level: 85,
+        },
+        {
+          name: "Photoshop",
+          icon: <SiAdobephotoshop className="text-blue-700" />,
+          level: 70,
+        },
+      ],
+    },
+  };
 
   // Animation variants
   const fadeIn = {
@@ -103,7 +186,10 @@ const About = () => {
 
     return parts.map((part, index) =>
       keywords.some((k) => k.toLowerCase() === part.toLowerCase()) ? (
-        <span key={index} className="text-black bg-white rounded-full px-2 font-semibold">
+        <span
+          key={index}
+          className="text-black bg-white rounded-full px-2 font-semibold"
+        >
           {part}
         </span>
       ) : (
@@ -300,7 +386,7 @@ const About = () => {
                   animate={mainControls}
                   className="w-full mt-6 space-y-4 text-sm sm:text-base font-sans"
                 >
-                   <h3 className="text-lg font-semibold text-white mb-3 font-heading">
+                  <h3 className="text-lg font-semibold text-white mb-3 font-heading">
                     Personal Details
                   </h3>
                   <div className="flex items-center text-gray-200">
@@ -343,10 +429,11 @@ const About = () => {
                         className="flex items-center text-gray-200"
                       >
                         <div className="flex items-center bg-black border border-white p-2 rounded-sm">
-                           <span className="mr-2 text-white">{interest.icon}</span>
-                           <span className="text-sm">{interest.name}</span>
+                          <span className="mr-2 text-white">
+                            {interest.icon}
+                          </span>
+                          <span className="text-sm">{interest.name}</span>
                         </div>
-                       
                       </div>
                     ))}
                   </div>
@@ -361,38 +448,59 @@ const About = () => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className="font-heading text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6"
                 >
-                  Skills
+                  Skills and Tools
                 </motion.h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {ABOUT_ME.skills?.map((skill, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 * index }}
-                      className="bg-gray-800/50 p-4 rounded-lg"
-                    >
-                      <h3 className="text-lg font-semibold text-white mb-2">
-                        {skill.name}
-                      </h3>
-                      <div className="w-full bg-gray-700 rounded-full h-2.5">
+                {/* Website Development Skills */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="mb-8 font-sans"
+                >
+                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                    <FaCode className="mr-2 text-blue-400 font-heading" />
+                    {skillsData.webDevelopment.title}
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {skillsData.webDevelopment.technologies.map(
+                      (tech, index) => (
                         <div
-                          className="bg-blue-500 h-2.5 rounded-full"
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
+                          key={index}
+                          className="bg-gray-800/50 p-4 rounded-lg flex items-center"
+                        >
+                          <div className="mr-3 text-2xl">{tech.icon}</div>
+                          <h4 className="text-white font-medium">
+                            {tech.name}
+                          </h4>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </motion.div>
+
+                {/* UI/UX Design Skills */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                    <FaFigma className="mr-2 text-purple-500" />
+                    {skillsData.uiUxDesign.title}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {skillsData.uiUxDesign.technologies.map((tech, index) => (
+                      <div
+                        key={index}
+                        className="bg-gray-800/50 p-4 rounded-lg flex items-center"
+                      >
+                        <div className="mr-3 text-2xl">{tech.icon}</div>
+                        <h4 className="text-white font-medium">{tech.name}</h4>
                       </div>
-                      <span className="text-sm text-gray-300 mt-1">
-                        {skill.level}%
-                      </span>
-                    </motion.div>
-                  )) || (
-                    <div className="text-gray-300">
-                      Skills data will be displayed here. Add a "skills" array
-                      to your ABOUT_ME data.
-                    </div>
-                  )}
-                </div>
+                    ))}
+                  </div>
+                </motion.div>
               </div>
 
               {/* Education Section */}
@@ -407,22 +515,33 @@ const About = () => {
                 </motion.h2>
 
                 <div className="space-y-6">
-                  {ABOUT_ME.education?.map((edu, index) => (
+                  {EDUCATION_TIMELINE?.map((edu, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 * index }}
-                      className="bg-gray-800/50 p-5 rounded-lg border-l-4 border-blue-500"
+                      className="bg-gray-800/50 p-5 rounded-lg border-l-4 border-white flex items-start gap-4"
                     >
-                      <h3 className="text-lg font-semibold text-white">
-                        {edu.degree}
-                      </h3>
-                      <p className="text-blue-300">{edu.institution}</p>
-                      <p className="text-gray-400">{edu.period}</p>
-                      {edu.description && (
-                        <p className="text-gray-300 mt-2">{edu.description}</p>
+                      {/* School Logo */}
+                      {edu.image && (
+                        <img
+                          src={edu.image}
+                          alt={`${edu.institution} logo`}
+                          className="w-14 h-14 object-contain rounded-md border border-gray-600 bg-gray-800 p-1"
+                        />
                       )}
+
+                      {/* School Info */}
+                      <div>
+                        <p className="text-blue-300">{edu.institution}</p>
+                        <p className="text-gray-400">{edu.duration}</p>
+                        {edu.description && (
+                          <p className="text-gray-300 mt-2">
+                            {edu.description}
+                          </p>
+                        )}
+                      </div>
                     </motion.div>
                   )) || (
                     <div className="text-gray-300">
