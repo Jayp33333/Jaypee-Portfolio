@@ -139,7 +139,12 @@ const About = () => {
 
         <div className="relative z-10 w-full max-w-6xl">
           {/* Decorative About Me Logo */}
-          <div className="flex items-center justify-center lg:justify-start my-4 sm:my-6">
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="flex items-center justify-center lg:justify-start my-4 sm:my-6"
+          >
             <div className="flex items-center w-full max-w-xs">
               <span className="flex-grow border-t border-gray-500"></span>
               <span className="px-3 sm:px-4 text-white font-bold text-lg sm:text-xl md:text-2xl whitespace-nowrap">
@@ -147,7 +152,7 @@ const About = () => {
               </span>
               <span className="flex-grow border-t border-gray-500"></span>
             </div>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             {/* Left - Profile Section */}
@@ -204,9 +209,9 @@ const About = () => {
                   href="https://github.com/Jayp33333"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 sm:p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 
+                  className="p-2.5 sm:p-3 rounded-full bg-white/10 hover:bg-white border border-white/10 text-white hover:text-black
                              transition-colors duration-300 shadow-md"
                 >
                   <FaGithub className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
@@ -217,9 +222,9 @@ const About = () => {
                   href="https://www.instagram.com/jay_p33333/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 sm:p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 
+                  className="p-2.5 sm:p-3 rounded-full bg-white/10 hover:bg-white border-white/10 text-white hover:text-pink-500 
                              transition-colors duration-300 shadow-md"
                 >
                   <FaInstagram className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
@@ -230,10 +235,10 @@ const About = () => {
                   href="https://www.facebook.com/johnpaul.jamito.585"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 sm:p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 
-                             transition-colors duration-300 shadow-md"
+                  className="p-2.5 sm:p-3 rounded-full bg-white/10 hover:bg-white border-white/10 text-white
+                             transition-colors duration-300 shadow-md hover:text-blue-600"
                 >
                   <FaFacebook className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                 </motion.a>
@@ -245,7 +250,7 @@ const About = () => {
                 download
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 5px 15px rgba(255, 255, 255, 0.3)",
@@ -476,7 +481,9 @@ const About = () => {
                       className="mb-10 relative"
                     >
                       {/* Circle Marker */}
-                      <span className="absolute -left-9 top-0 w-6 h-6 rounded-full bg-white border-2 border-gray-400 shadow-sm"></span>
+                      <span className="absolute -left-9 top-0 w-6 h-6 rounded-full bg-black border-2 border-white shadow-sm flex items-center justify-center">
+                        <span className="w-3 h-3 rounded-full bg-white"></span>
+                      </span>
 
                       {/* Card */}
                       <div className="bg-black border border-white/30 rounded-xl p-5 shadow-md hover:shadow-lg transition duration-300">
