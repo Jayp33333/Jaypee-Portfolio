@@ -51,7 +51,7 @@
       opacity: 1;
     }
     10% {
-      width: 25%;
+      width: 28%;
       height: 100%;
       opacity: 1;
     }
@@ -64,7 +64,7 @@
       opacity: 1;
     } /* hold for ~3s */
     90% {
-      width: 25%;
+      width: 28%;
       height: 100%;
       opacity: 1;
     }
@@ -82,7 +82,7 @@
     width: 40%; /* width of scanner frame */
     background: rgba(255, 255, 255, 0.15); /* faint light effect */
     mix-blend-mode: difference; /* <-- inverts black text to white */
-    animation: scan 6s ease-in-out infinite;
+    animation: scan 8s ease-in-out infinite;
     animation-delay: 1.5s;
     opacity: 0;
     border-radius: 0.5rem;

@@ -106,17 +106,26 @@ const Projects = () => {
     <section className="relative containerLayout w-full flex flex-col items-center justify-center py-20 px-6 overflow-hidden">
       <ParticlesBackground />
       {/* Title */}
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center text-white mb-16"
+        transition={{ duration: 0.6 }}
+        className="flex items-center w-full max-w-3xl mx-auto mb-16"
       >
-        My <span className="text-yellow-400">Projects</span>
-      </motion.h2>
+        <span className="flex-grow border-t border-gray-500"></span>
+        <span className="px-4 text-white font-bold text-lg sm:text-xl md:text-2xl whitespace-nowrap">
+          MY PROJECTS
+        </span>
+        <span className="flex-grow border-t border-gray-500"></span>
+      </motion.div>
 
       {/* Carousel Container */}
-      <div className="relative w-full max-w-6xl h-96 flex items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className="relative w-full max-w-6xl h-96 flex items-center justify-center"
+      >
         {/* Left Card */}
         <motion.div
           className="absolute hidden md:flex w-1/4 lg:w-1/3 z-10 cursor-pointer perspective-1000"
@@ -125,7 +134,7 @@ const Projects = () => {
           animate="left"
           onClick={() => handleProjectClick(leftIndex)}
         >
-          <div className="w-full p-4 rounded-2xl bg-gradient-to-br from-gray-900/70 to-gray-800/40 backdrop-blur-md border border-white/10 shadow-2xl transform-style-preserve-3d">
+          <div className="w-full p-4 rounded-2xl bg-black border border-white/20 shadow-2xl transform-style-preserve-3d">
             <div className="w-full h-40 rounded-lg overflow-hidden shadow-lg">
               <img
                 src={projectData[leftIndex].image}
@@ -142,7 +151,12 @@ const Projects = () => {
         </motion.div>
 
         {/* Center Card */}
-        <div className="absolute w-full sm:w-3/4 md:w-2/5 z-20 perspective-1000">
+        <motion.div
+          initial={{ opacity: 0.9, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="absolute w-full sm:w-3/4 lg:w-2/5 z-20 perspective-1000"
+        >
           <AnimatePresence custom={direction} mode="wait" initial={false}>
             <motion.div
               key={currentProject.id}
@@ -151,7 +165,7 @@ const Projects = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              className="w-full p-6 rounded-2xl bg-gradient-to-br from-black/80 to-gray-900 backdrop-blur-md border border-white/10 shadow-2xl transform-style-preserve-3d"
+              className="w-full p-6 rounded-2xl bg-black border border-white/20 shadow-2xl transform-style-preserve-3d"
             >
               <div className="w-full h-52 rounded-xl overflow-hidden shadow-lg mb-5">
                 <img
@@ -164,23 +178,21 @@ const Projects = () => {
                 <h3 className="text-xl font-bold text-white mb-2">
                   {currentProject.title}
                 </h3>
-                <p className="text-gray-300 text-sm line-clamp-2 mb-5">
+                <p className="text-gray-300 text-md line-clamp-2 mb-5 font-sans">
                   {currentProject.description}
                 </p>
               </div>
               <div className="flex justify-center gap-4">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 rounded-lg bg-yellow-500 text-black font-semibold flex items-center gap-2 hover:bg-yellow-400 transition shadow-md"
+                  className="px-4 py-2 rounded-lg bg-white text-black font-semibold flex items-center gap-2 hover:bg-white/80 transition shadow-md"
                   onClick={() => openModal(currentProject.description)}
                 >
                   <FaInfoCircle /> Details
                 </motion.button>
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white flex items-center gap-2 hover:bg-yellow-500 hover:text-black transition shadow-md"
+                  className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white flex items-center gap-2 hover:bg-white/80 hover:text-black transition shadow-md"
                   onClick={() => window.open(currentProject.link, "_blank")}
                 >
                   <FaLink /> Visit
@@ -188,32 +200,39 @@ const Projects = () => {
               </div>
             </motion.div>
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {/* Right Card */}
         <motion.div
-          className="absolute hidden md:flex w-1/4 lg:w-1/3 z-10 cursor-pointer perspective-1000"
-          variants={sideVariants}
-          initial="right"
-          animate="right"
-          onClick={() => handleProjectClick(rightIndex)}
+          initial={{ opacity: 0.9, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative w-full max-w-6xl h-96 flex items-center justify-center"
         >
-          <div className="w-full p-4 rounded-2xl bg-gradient-to-br from-gray-900/70 to-gray-800/40 backdrop-blur-md border border-white/10 shadow-2xl transform-style-preserve-3d">
-            <div className="w-full h-40 rounded-lg overflow-hidden shadow-lg">
-              <img
-                src={projectData[rightIndex].image}
-                alt={projectData[rightIndex].title}
-                className="w-full h-full object-cover"
-              />
+          <motion.div
+            className="absolute hidden lg:flex w-1/4 lg:w-1/3 z-10 cursor-pointer perspective-1000"
+            variants={sideVariants}
+            initial="right"
+            animate="right"
+            onClick={() => handleProjectClick(rightIndex)}
+          >
+            <div className="w-full p-4 rounded-2xl bg-black border border-white/20 shadow-2xl transform-style-preserve-3d">
+              <div className="w-full h-40 rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src={projectData[rightIndex].image}
+                  alt={projectData[rightIndex].title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h4 className="text-white text-sm font-medium">
+                  {projectData[rightIndex].title}
+                </h4>
+              </div>
             </div>
-            <div className="mt-4 text-center">
-              <h4 className="text-white text-sm font-medium">
-                {projectData[rightIndex].title}
-              </h4>
-            </div>
-          </div>
+          </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Indicators */}
       <motion.div
@@ -227,7 +246,7 @@ const Projects = () => {
             key={index}
             onClick={() => handleProjectClick(index)}
             className={`w-3 h-3 rounded-full transition-all ${
-              index === current ? "bg-yellow-500 scale-125" : "bg-white/30"
+              index === current ? "bg-white scale-125" : "bg-white/30"
             }`}
           />
         ))}
@@ -241,7 +260,7 @@ const Projects = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => handleSlide("prev")}
-          className="p-4 rounded-full bg-white/10 border border-white/20 text-white hover:bg-yellow-500 hover:text-black transition shadow-lg"
+          className="p-4 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white hover:text-black transition shadow-lg"
         >
           <GoArrowLeft size={24} />
         </motion.button>
@@ -251,7 +270,7 @@ const Projects = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => handleSlide("next")}
-          className="p-4 rounded-full bg-white/10 border border-white/20 text-white hover:bg-yellow-500 hover:text-black transition shadow-lg"
+          className="p-4 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white hover:text-black transition shadow-lg"
         >
           <GoArrowRight size={24} />
         </motion.button>
@@ -261,14 +280,14 @@ const Projects = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 px-4 py-6"
+            className="fixed inset-0 bg-black backdrop-blur-md flex items-center justify-center z-50 px-4 py-6"
             onClick={closeModal}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="relative bg-gradient-to-br from-gray-900 to-gray-800 backdrop-blur-lg border border-white/20 rounded-2xl p-6 sm:p-8 w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl"
+              className="relative bg-black backdrop-blur-lg border border-white/20 rounded-2xl p-6 sm:p-8 w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl"
               onClick={(e) => e.stopPropagation()}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -280,7 +299,7 @@ const Projects = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={closeModal}
-                className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-red-500 hover:bg-red-600 transition shadow-md"
+                className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black border border-white hover:bg-white/10 text-white transition shadow-md"
               >
                 ✕
               </motion.button>
@@ -314,19 +333,18 @@ const Projects = () => {
               )}
 
               {/* Project Description */}
-              <p className="text-gray-200 leading-relaxed mb-6">
+              <p className="text-gray-200 leading-relaxed mb-6 text-sm md:text-base lg:text-lg font-sans">
                 {currentProjectDescription}
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4">
                 <motion.a
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   href={currentProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-lg bg-yellow-500 text-black font-semibold flex items-center gap-2 hover:bg-yellow-400 transition shadow-md"
+                  className="px-6 py-3 rounded-lg bg-white/10 text-white border border-white/20 font-semibold flex items-center gap-2 hover:rounded-full transition shadow-md"
                 >
                   <FaLink /> View Live
                 </motion.a>
