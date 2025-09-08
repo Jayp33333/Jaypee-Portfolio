@@ -8,7 +8,8 @@ import ParticlesBackground from "../components/ParticlesBackground";
 const Projects = () => {
   const [current, setCurrent] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [currentProjectDescription, setCurrentProjectDescription] = useState("");
+  const [currentProjectDescription, setCurrentProjectDescription] =
+    useState("");
   const [direction, setDirection] = useState(0);
 
   const total = projectData.length;
@@ -61,7 +62,7 @@ const Projects = () => {
         stiffness: 300,
         damping: 30,
         mass: 1,
-      }
+      },
     },
     exit: (direction) => ({
       x: direction < 0 ? 500 : -500,
@@ -69,9 +70,9 @@ const Projects = () => {
       scale: 0.8,
       rotateY: direction < 0 ? 15 : -15,
       transition: {
-        duration: 0.3
-      }
-    })
+        duration: 0.3,
+      },
+    }),
   };
 
   const sideVariants = {
@@ -85,7 +86,7 @@ const Projects = () => {
         type: "spring",
         stiffness: 300,
         damping: 30,
-      }
+      },
     },
     right: {
       x: 180,
@@ -97,8 +98,8 @@ const Projects = () => {
         type: "spring",
         stiffness: 300,
         damping: 30,
-      }
-    }
+      },
+    },
   };
 
   return (
@@ -116,7 +117,6 @@ const Projects = () => {
 
       {/* Carousel Container */}
       <div className="relative w-full max-w-6xl h-96 flex items-center justify-center">
-        
         {/* Left Card */}
         <motion.div
           className="absolute hidden md:flex w-1/4 lg:w-1/3 z-10 cursor-pointer perspective-1000"
@@ -216,20 +216,21 @@ const Projects = () => {
       </div>
 
       {/* Indicators */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 , duration: 0.8 }}
-        className="flex justify-center gap-2 mt-8 mb-6">
-          {projectData.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleProjectClick(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === current ? "bg-yellow-500 scale-125" : "bg-white/30"
-              }`}
-            />
-          ))}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        className="flex justify-center gap-2 mt-8 mb-6"
+      >
+        {projectData.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleProjectClick(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === current ? "bg-yellow-500 scale-125" : "bg-white/30"
+            }`}
+          />
+        ))}
       </motion.div>
 
       {/* Controls */}

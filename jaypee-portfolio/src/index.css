@@ -44,6 +44,22 @@
     background: #fff;
     animation: blink 1s infinite;
   }
+  /* Scanner bar animation */
+@keyframes scan {
+  0%   { width: 0; height: 0; opacity: 1; }
+  10%  { width: 25%; height: 100%; opacity: 1; }
+  20%  { width: 100%; opacity: 1; }
+  80%  { width: 100%; opacity: 1; } /* hold for ~3s */
+  90% { width: 25%; height: 100%; opacity: 1; }
+  100% { width: 0; height: 0; opacity: 1; }
+}
+
+.scanning-bar {
+  animation: scan 10s ease-in-out infinite; /* make total duration longer */
+  animation-delay: 3s;
+  opacity: 0;
+}
+
 }
   
   

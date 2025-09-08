@@ -80,7 +80,21 @@ const Home = () => {
             Hello, I'm
           </motion.h1>
 
-          <div className="flex flex-row items-center justify-center my-8 md:my-1 z-10">
+          <div className="flex flex-row items-center justify-center my-8 md:my-1 z-10 relative overflow-hidden">
+            <div className="absolute inset-0 rounded-lg mix-blend-difference text-white scanning-bar bg-white/20">
+              {/* top-left corner */}
+              <span className="absolute top-0 left-0 w-5 h-[1px] bg-white"></span>
+              <span className="absolute top-0 left-0 w-[1px] h-5 bg-white"></span>
+              {/* top-right corner */}
+              <span className="absolute top-0 right-0 w-5 h-[1px] bg-white"></span>
+              <span className="absolute top-0 right-0 w-[1px] h-5 bg-white"></span>
+              {/* bottom-left corner */}
+              <span className="absolute bottom-0 left-0 w-5 h-[1px] bg-white"></span>
+              <span className="absolute bottom-0 left-0 w-[1px] h-5 bg-white"></span>
+              {/* bottom-right corner */}
+              <span className="absolute bottom-0 right-0 w-5 h-[1px] bg-white"></span>
+              <span className="absolute bottom-0 right-0 w-[1px] h-5 bg-white"></span>
+            </div>
             <motion.div
               className="relative flex items-center justify-center"
               initial={{ scale: 0 }}
@@ -93,20 +107,6 @@ const Home = () => {
               }}
             >
               {/* Decorative frame */}
-              <div className="absolute inset-0 rounded-lg">
-                {/* top-left corner */}
-                <span className="absolute top-0 left-0 w-5 h-[1px] bg-white"></span>
-                <span className="absolute top-0 left-0 w-[1px] h-5 bg-white"></span>
-                {/* top-right corner */}
-                <span className="absolute top-0 right-0 w-5 h-[1px] bg-white"></span>
-                <span className="absolute top-0 right-0 w-[1px] h-5 bg-white"></span>
-                {/* bottom-left corner */}
-                <span className="absolute bottom-0 left-0 w-5 h-[1px] bg-white"></span>
-                <span className="absolute bottom-0 left-0 w-[1px] h-5 bg-white"></span>
-                {/* bottom-right corner */}
-                <span className="absolute bottom-0 right-0 w-5 h-[1px] bg-white"></span>
-                <span className="absolute bottom-0 right-0 w-[1px] h-5 bg-white"></span>
-              </div>
 
               {/* Main Letter */}
               <h2 className="relative z-10 text-[6rem] sm:text-[7rem] md:text-[10rem] font-black text-white/90">
