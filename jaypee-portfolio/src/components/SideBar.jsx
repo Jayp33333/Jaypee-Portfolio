@@ -104,21 +104,28 @@ const SideBar = () => {
             >
               {SideBarLinks.map((item) => {
                 const isActive = location.pathname === item.path;
-                
+
                 return (
                   <motion.li key={item.id} variants={itemVariants}>
                     <Link
                       to={item.path}
                       onClick={handleLinkClick}
                       className={`group relative flex flex-col items-center gap-2 rounded-full transform transition-all duration-300 p-3
-                        ${isActive 
-                          ? "bg-white/20 border-white/30 text-white scale-110" 
-                          : "bg-white/5 border-white/5 text-gray-300 hover:bg-white/10 hover:border-white/20 hover:scale-110"
+                        ${
+                          isActive
+                            ? "bg-white/20 border-white/30 text-white scale-110"
+                            : "bg-white/5 border-white/5 text-gray-300 hover:bg-white/10 hover:border-white/20 hover:scale-110"
                         }
                         border backdrop-blur-sm active:scale-95
                       `}
                     >
-                      <item.icon className={`text-xl sm:text-2xl transition-all duration-300 ${isActive ? "text-white" : "text-gray-300 group-hover:text-white"}`} />
+                      <item.icon
+                        className={`text-xl sm:text-2xl transition-all duration-300 ${
+                          isActive
+                            ? "text-white"
+                            : "text-gray-300 group-hover:text-white"
+                        }`}
+                      />
                       <span
                         className="
                           absolute left-full ml-2 px-2 py-1 

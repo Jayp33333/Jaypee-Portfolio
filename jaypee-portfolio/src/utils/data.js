@@ -1,31 +1,41 @@
 import {
   FaHome,
   FaUser,
-  FaEnvelope,
-  FaGraduationCap,
   FaCode,
   FaProjectDiagram,
-} from "react-icons/fa";
-import {
-  FaReact,
-  FaHtml5,
-  FaCss3,
-  FaNodeJs,
-  FaFacebook,
-  FaInstagram,
   FaGithub,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaFigma,
+  FaGit,
+  FaJava,
+  FaGamepad,
+  FaMusic,
+  FaTv,
+  FaBasketballBall,
+  FaBiking,
 } from "react-icons/fa";
-import { BiLogoJavascript } from "react-icons/bi";
+
 import {
+  SiCanva,
+  SiAdobephotoshop,
+  SiTailwindcss,
+  SiNodedotjs,
   SiExpress,
   SiMongodb,
-  SiMysql,
-  SiTailwindcss,
   SiPostman,
+  SiMysql,
 } from "react-icons/si";
-import { VscCode, VscTerminalPowershell } from "react-icons/vsc";
 
-import { FaGitAlt } from "react-icons/fa6";
+import { VscVscode } from "react-icons/vsc";
+
+import pup from "../assets/images/pup.png";
+import cnhs from "../assets/images/cnhs.png";
+import sumilang from "../assets/images/sumilang.png";
+import sumulong from "../assets/images/sumulong.png";
+
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Projects from "../pages/Projects";
@@ -43,90 +53,24 @@ export const SideBarLinks = [
   // { id: "06", label: "Contact", icon: FaEnvelope, path: "/contact", element: Contact },
 ];
 
+export const navItems = [
+  { name: "Introduction", href: "#introduction" },
+  { name: "Skills", href: "#skills" },
+  { name: "Education", href: "#education" },
+];
+
 import classfund from "../assets/images/class-fund.png";
 import eccomerce from "../assets/images/tech-shop-ecommerce.png";
 import bhrs from "../assets/images/bhrs.png";
 import zoolyst from "../assets/images/zoolyst.png";
 
-export const SKILLS = [
-  {
-    id: "01",
-    icon: FaHtml5,
-    skill: "HTML5",
-    type: "frontend",
-  },
-  {
-    id: "02",
-    icon: FaCss3,
-    skill: "CSS",
-    type: "frontend",
-  },
-  {
-    id: "03",
-    icon: BiLogoJavascript,
-    skill: "JavaScript",
-    type: "frontend",
-  },
-  {
-    id: "04",
-    icon: FaReact,
-    skill: "React JS",
-    type: "frontend",
-  },
-  {
-    id: "05",
-    icon: SiTailwindcss,
-    skill: "Tailwind CSS",
-    type: "frontend",
-  },
-  {
-    id: "06",
-    icon: FaNodeJs,
-    skill: "Node.js",
-    type: "backend",
-  },
-  {
-    id: "07",
-    icon: SiExpress,
-    skill: "Express.js",
-    type: "backend",
-  },
-  {
-    id: "08",
-    icon: SiMongodb,
-    skill: "MongoDB",
-    type: "backend",
-  },
-  {
-    id: "09",
-    icon: SiMysql,
-    skill: "MySQL",
-    type: "backend",
-  },
-  {
-    id: "10",
-    icon: FaGitAlt,
-    skill: "Git",
-    type: "tools",
-  },
-  {
-    id: "11",
-    icon: FaGithub,
-    skill: "GitHub",
-    type: "tools",
-  },
-  {
-    id: "12",
-    icon: VscCode,
-    skill: "VS Code",
-    type: "tools",
-  },
-  {
-    id: "13",
-    icon: SiPostman,
-    skill: "Postman",
-    type: "tools",
-  },
+export const interests = [
+  { name: "Gaming", icon: FaGamepad },
+  { name: "Music", icon: FaMusic },
+  { name: "Coding", icon: FaCode },
+  { name: "Watching", icon: FaTv },
+  { name: "Basketball", icon: FaBasketballBall },
+  { name: "Biking", icon: FaBiking },
 ];
 
 export const ABOUT_ME = {
@@ -136,10 +80,45 @@ I’m just a guy who’s fascinated by technology and loves building cool things
 I believe technology should make life easier, and that’s exactly what I aim to do—whether it's crafting a website, solving problems through code, or simply learning something new every day. Right now, I’m on a journey to level up my skills and turn my passion into something meaningful.`,
 };
 
-import pup from "../assets/images/pup.png";
-import cnhs from "../assets/images/cnhs.png";
-import sumilang from "../assets/images/sumilang.png";
-import sumulong from "../assets/images/sumulong.png";
+// Personal details data
+export const personalDetails = {
+  age: "20",
+  birthdate: "January 15, 2005",
+  phone: "09706553264",
+  email: "johnpauljamito5@gmail.com",
+  address: "Calauag, Quezon, Philippines",
+};
+
+// Skills data
+export const skillsData = {
+  webDevelopment: {
+    title: "Website Development",
+    technologies: [
+      { name: "Java", icon: FaJava, color: "#007396" },
+      { name: "HTML", icon: FaHtml5, color: "orange" },
+      { name: "CSS", icon: FaCss3Alt, color: "blue" },
+      { name: "JavaScript", icon: FaJs, color: "yellow" },
+      { name: "React", icon: FaReact, color: "#61DBFB" },
+      { name: "Node.js", icon: SiNodedotjs, color: "green" },
+      { name: "Express", icon: SiExpress, color: "gray" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38B2AC" },
+      { name: "MongoDB", icon: SiMongodb, color: "#4DB33D" },
+      { name: "MySQL", icon: SiMysql, color: "#00758F" },
+      { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+      { name: "Git", icon: FaGit, color: "#F1502F" },
+      { name: "GitHub", icon: FaGithub, color: "black" },
+      { name: "VS Code", icon: VscVscode, color: "#0078D7" },
+    ],
+  },
+  uiUxDesign: {
+    title: "UI/UX Design",
+    technologies: [
+      { name: "Figma", icon: FaFigma, color: "#A259FF" },
+      { name: "Canva", icon: SiCanva, color: "#00C4CC" },
+      { name: "Photoshop", icon: SiAdobephotoshop, color: "#31A8FF" },
+    ],
+  },
+};
 
 export const EDUCATION_TIMELINE = [
   {
@@ -185,7 +164,7 @@ export const EDUCATION_TIMELINE = [
     duration: "2011 - 2013",
     description:
       "Began formal education by learning basic literacy, numeracy, and classroom routines as a young learner.",
-    image: sumulong
+    image: sumulong,
   },
 ];
 

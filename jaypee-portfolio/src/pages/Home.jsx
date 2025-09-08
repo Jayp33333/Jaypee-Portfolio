@@ -1,19 +1,26 @@
 // src/pages/Home.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload, FaInstagram, FaFacebook } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaFileDownload,
+  FaInstagram,
+  FaFacebook,
+} from "react-icons/fa";
 import ParticlesBackground from "../components/ParticlesBackground";
 import TypingTagline from "../components/TypingTagline";
 
 const Home = () => {
   return (
-    <motion.section 
+    <motion.section
       className="relative w-full h-[100dvh] text-white overflow-hidden"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1}}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
       exit={{ opacity: 0 }}
-      >
+    >
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
@@ -78,7 +85,12 @@ const Home = () => {
               className="relative flex items-center justify-center"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.8, type: 'spring', stiffness: 100 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.8,
+                type: "spring",
+                stiffness: 100,
+              }}
             >
               {/* Decorative frame */}
               <div className="absolute inset-0 rounded-lg">
@@ -101,7 +113,6 @@ const Home = () => {
                 J
               </h2>
             </motion.div>
-
 
             <div className="flex flex-col items-start ml-1 mt-0">
               <motion.h2

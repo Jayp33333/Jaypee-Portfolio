@@ -11,33 +11,18 @@ import {
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaGamepad,
-  FaMusic,
   FaCode,
-  FaTv,
-  FaBasketballBall,
-  FaBiking,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
   FaFigma,
-  FaGit,
-  FaJava,
 } from "react-icons/fa";
-import {
-  SiCanva,
-  SiAdobephotoshop,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiPostman,
-  SiMysql,
-} from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
+
 import ParticlesBackground from "../components/ParticlesBackground.jsx";
-import { EDUCATION_TIMELINE } from "../utils/data";
+import {
+  EDUCATION_TIMELINE,
+  interests,
+  personalDetails,
+  skillsData,
+  navItems,
+} from "../utils/data";
 
 const About = () => {
   const ref = useRef(null);
@@ -54,106 +39,6 @@ const About = () => {
       contentControls.start("visible");
     }
   }, [isInView, mainControls, socialControls, contentControls]);
-
-  // Personal details data
-  const personalDetails = {
-    age: "20",
-    birthdate: "January 15, 2005",
-    phone: "09706553264",
-    email: "johnpauljamito5@gmail.com",
-    address: "Calauag, Quezon, Philippines",
-  };
-
-  const interests = [
-    { name: "Gaming", icon: <FaGamepad /> },
-    { name: "Music", icon: <FaMusic /> },
-    { name: "Coding", icon: <FaCode /> },
-    { name: "Watching", icon: <FaTv /> },
-    { name: "Basketball", icon: <FaBasketballBall /> },
-    { name: "Biking", icon: <FaBiking /> },
-  ];
-
-  // Skills data
-  const skillsData = {
-    webDevelopment: {
-      title: "Website Development",
-      technologies: [
-        {
-          name: "Java",
-          icon: <FaJava className="text-[#007396]" />,
-        },
-        {
-          name: "HTML",
-          icon: <FaHtml5 className="text-orange-500" />,
-        },
-        {
-          name: "CSS",
-          icon: <FaCss3Alt className="text-blue-500" />,
-        },
-        {
-          name: "JavaScript",
-          icon: <FaJs className="text-yellow-400" />,
-        },
-        {
-          name: "React",
-          icon: <FaReact className="text-blue-400" />,
-        },
-        {
-          name: "Node.js",
-          icon: <SiNodedotjs className="text-green-500" />,
-        },
-        {
-          name: "Express",
-          icon: <SiExpress className="text-gray-400" />,
-        },
-        {
-          name: "Tailwind CSS",
-          icon: <SiTailwindcss className="text-cyan-400" />,
-        },
-        {
-          name: "MongoDB",
-          icon: <SiMongodb className="text-green-600" />,
-        },
-        {
-          name: "MySQL",
-          icon: <SiMysql className="text-blue-600" />,
-        },
-        {
-          name: "Postman",
-          icon: <SiPostman className="text-orange-400" />,
-        },
-        {
-          name: "Git",
-          icon: <FaGit className="text-orange-500" />,
-        },
-        {
-          name: "GitHub",
-          icon: <FaGithub className="text-gray-400" />,
-        },
-        {
-          name: "VS Code",
-          icon: <VscVscode className="text-blue-600" />,
-        },
-      ],
-    },
-    uiUxDesign: {
-      title: "UI/UX Design",
-      technologies: [
-        {
-          name: "Figma",
-          icon: <FaFigma className="text-purple-500" />,
-        },
-        {
-          name: "Canva",
-          icon: <SiCanva className="text-blue-400" />,
-        },
-        {
-          name: "Photoshop",
-          icon: <SiAdobephotoshop className="text-blue-700" />,
-        },
-      ],
-    },
-  };
 
   // Animation variants
   const fadeIn = {
@@ -190,12 +75,6 @@ const About = () => {
       transition: { duration: 0.7, ease: "easeOut" },
     },
   };
-
-  const navItems = [
-    { name: "Introduction", href: "#introduction" },
-    { name: "Skills", href: "#skills" },
-    { name: "Education", href: "#education" },
-  ];
 
   const highlightMultiple = (text, keywords) => {
     if (!text) return text;
@@ -462,21 +341,24 @@ const About = () => {
                     Interests
                   </h3>
                   <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                    {interests.map((interest, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center text-gray-200"
-                      >
-                        <div className="flex items-center bg-black/60 border border-white/30 p-2 sm:p-2.5 rounded-lg w-full">
-                          <span className="mr-2 text-white flex-shrink-0">
-                            {interest.icon}
-                          </span>
-                          <span className="text-xs sm:text-sm">
-                            {interest.name}
-                          </span>
+                    {interests.map((interest, index) => {
+                      const Icon = interest.icon;
+                      return (
+                        <div
+                          key={index}
+                          className="flex items-center text-gray-200"
+                        >
+                          <div className="flex items-center bg-black/60 border border-white/30 p-2 sm:p-2.5 rounded-lg w-full">
+                            <span className="mr-2 text-white flex-shrink-0">
+                              <Icon />
+                            </span>
+                            <span className="text-xs sm:text-sm">
+                              {interest.name}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </motion.div>
               </div>
@@ -499,29 +381,32 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="mb-6 sm:mb-8 font-sans"
                 >
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center">
-                    <FaCode className="mr-2 text-blue-400 font-heading flex-shrink-0" />
+                    <FaCode className="mr-2 text-blue-400 flex-shrink-0 font-heading" />
                     <span className="break-words">
                       {skillsData.webDevelopment.title}
                     </span>
                   </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-3  gap-3 sm:gap-4">
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 font-sans">
                     {skillsData.webDevelopment.technologies.map(
-                      (tech, index) => (
-                        <div
-                          key={index}
-                          className="bg-gray-800/50 p-3 sm:p-4 rounded-lg flex flex-col items-center justify-center min-w-0 text-center"
-                        >
-                          <div className="text-xl sm:text-2xl flex-shrink-0">
-                            {tech.icon}
+                      (tech, index) => {
+                        const TechIcon = tech.icon;
+                        return (
+                          <div
+                            key={index}
+                            className="bg-gray-800/50 p-3 sm:p-4 rounded-lg flex flex-col justify-center items-center min-w-0"
+                          >
+                            <div className="text-xl sm:text-2xl flex-shrink-0">
+                              <TechIcon style={{ color: tech.color }} />
+                            </div>
+                            <h4 className="text-white font-medium text-sm sm:text-base truncate">
+                              {tech.name}
+                            </h4>
                           </div>
-                          <h4 className="text-white font-medium text-sm sm:text-base truncate">
-                            {tech.name}
-                          </h4>
-                        </div>
-                      )
+                        );
+                      }
                     )}
                   </div>
                 </motion.div>
@@ -538,20 +423,24 @@ const About = () => {
                       {skillsData.uiUxDesign.title}
                     </span>
                   </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                    {skillsData.uiUxDesign.technologies.map((tech, index) => (
-                      <div
-                        key={index}
-                        className="bg-gray-800/50 p-3 sm:p-4 rounded-lg flex flex-col justify-center items-center min-w-0"
-                      >
-                        <div className="text-xl sm:text-2xl flex-shrink-0">
-                          {tech.icon}
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 font-sans">
+                    {skillsData.uiUxDesign.technologies.map((tech, index) => {
+                      const TechIcon = tech.icon;
+                      return (
+                        <div
+                          key={index}
+                          className="bg-gray-800/50 p-3 sm:p-4 rounded-lg flex flex-col justify-center items-center min-w-0"
+                        >
+                          <div className="text-xl sm:text-2xl flex-shrink-0">
+                            <TechIcon style={{ color: tech.color }} />
+                          </div>
+                          <h4 className="text-white font-medium text-sm sm:text-base truncate">
+                            {tech.name}
+                          </h4>
                         </div>
-                        <h4 className="text-white font-medium text-sm sm:text-base truncate">
-                          {tech.name}
-                        </h4>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </motion.div>
               </div>
@@ -570,7 +459,7 @@ const About = () => {
                   <span className="flex-grow border-t border-gray-500"></span>
                 </motion.h2>
 
-                <div className="relative border-l border-gray-500 pl-6">
+                <div className="relative border-l border-gray-500 pl-6 font-sans">
                   {EDUCATION_TIMELINE?.map((edu, index) => (
                     <motion.div
                       key={index}
