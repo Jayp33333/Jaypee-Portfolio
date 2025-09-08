@@ -311,8 +311,8 @@ const About = () => {
                   <div className="flex items-center text-gray-200">
                     <FaBirthdayCake className="mr-2 sm:mr-3 text-white flex-shrink-0" />
                     <span className="break-words">
-                      {personalDetails.age} years old •{" "}
-                      {personalDetails.birthdate}
+                      {personalDetails.birthdate} •{" "}
+                      {personalDetails.age} years old 
                     </span>
                   </div>
 
