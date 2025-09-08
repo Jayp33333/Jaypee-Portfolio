@@ -302,13 +302,17 @@ const About = () => {
                   animate={mainControls}
                   className="w-full mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base font-sans"
                 >
-                  <h3 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3 font-heading">
-                    Personal Details
-                  </h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="w-8 border-t border-gray-500"></span>
+                    <h3 className="text-base sm:text-lg font-semibold text-white font-heading">
+                      Personal Details
+                    </h3>
+                  </div>
                   <div className="flex items-center text-gray-200">
                     <FaBirthdayCake className="mr-2 sm:mr-3 text-white flex-shrink-0" />
                     <span className="break-words">
-                      {personalDetails.age} years • {personalDetails.birthdate}
+                      {personalDetails.age} years old •{" "}
+                      {personalDetails.birthdate}
                     </span>
                   </div>
 
@@ -337,9 +341,12 @@ const About = () => {
                   animate={mainControls}
                   className="w-full mt-4 sm:mt-6"
                 >
-                  <h3 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">
-                    Interests
-                  </h3>
+                  <div className="flex items-center space-x-2 mb-2 sm:mb-3">
+                    <span className="w-8 border-t border-gray-500"></span>
+                    <h3 className="text-base sm:text-lg font-semibold text-white">
+                      Interests
+                    </h3>
+                  </div>
                   <div className="grid grid-cols-2 gap-2 sm:gap-3">
                     {interests.map((interest, index) => {
                       const Icon = interest.icon;
@@ -364,7 +371,7 @@ const About = () => {
               </div>
 
               {/* Skills Section */}
-              <div id="skills" className="scroll-mt-24 mt-8 sm:mt-10">
+              <div id="skills" className="scroll-mt-24 mt-24">
                 <motion.h2
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -417,7 +424,7 @@ const About = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center mt-10">
                     <FaFigma className="mr-2 text-purple-500 flex-shrink-0" />
                     <span className="break-words">
                       {skillsData.uiUxDesign.title}
@@ -446,7 +453,7 @@ const About = () => {
               </div>
 
               {/* Education Section */}
-              <div id="education" className="scroll-mt-24 mt-12">
+              <div id="education" className="scroll-mt-24 mt-24">
                 <motion.h2
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}

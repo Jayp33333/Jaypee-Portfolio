@@ -65,9 +65,9 @@ import bhrs from "../assets/images/bhrs.png";
 import zoolyst from "../assets/images/zoolyst.png";
 
 export const interests = [
+  { name: "Coding", icon: FaCode },
   { name: "Gaming", icon: FaGamepad },
   { name: "Music", icon: FaMusic },
-  { name: "Coding", icon: FaCode },
   { name: "Watching", icon: FaTv },
   { name: "Basketball", icon: FaBasketballBall },
   { name: "Biking", icon: FaBiking },
@@ -94,31 +94,32 @@ export const skillsData = {
   webDevelopment: {
     title: "Website Development",
     technologies: [
-      { name: "Java", icon: FaJava, color: "#007396" },
-      { name: "HTML", icon: FaHtml5, color: "orange" },
-      { name: "CSS", icon: FaCss3Alt, color: "blue" },
-      { name: "JavaScript", icon: FaJs, color: "yellow" },
-      { name: "React", icon: FaReact, color: "#61DBFB" },
-      { name: "Node.js", icon: SiNodedotjs, color: "green" },
-      { name: "Express", icon: SiExpress, color: "gray" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38B2AC" },
-      { name: "MongoDB", icon: SiMongodb, color: "#4DB33D" },
-      { name: "MySQL", icon: SiMysql, color: "#00758F" },
-      { name: "Postman", icon: SiPostman, color: "#FF6C37" },
-      { name: "Git", icon: FaGit, color: "#F1502F" },
-      { name: "GitHub", icon: FaGithub, color: "black" },
-      { name: "VS Code", icon: VscVscode, color: "#0078D7" },
+      { name: "Java", icon: FaJava, color: "#007396" }, // Java official blue
+      { name: "HTML", icon: FaHtml5, color: "#E34F26" }, // HTML5 orange
+      { name: "CSS", icon: FaCss3Alt, color: "#1572B6" }, // CSS3 blue
+      { name: "JavaScript", icon: FaJs, color: "#F7DF1E" }, // JS yellow
+      { name: "React", icon: FaReact, color: "#61DAFB" }, // React cyan
+      { name: "Node.js", icon: SiNodedotjs, color: "#339933" }, // Node.js green
+      { name: "Express", icon: SiExpress, color: "gray" }, // Express is black
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" }, // Tailwind cyan
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" }, // MongoDB green
+      { name: "MySQL", icon: SiMysql, color: "#4479A1" }, // MySQL blue
+      { name: "Postman", icon: SiPostman, color: "#FF6C37" }, // Postman orange
+      { name: "Git", icon: FaGit, color: "#F05032" }, // Git orange
+      { name: "GitHub", icon: FaGithub, color: "gray" }, // GitHub black
+      { name: "VS Code", icon: VscVscode, color: "#007ACC" }, // VS Code blue
     ],
   },
   uiUxDesign: {
     title: "UI/UX Design",
     technologies: [
-      { name: "Figma", icon: FaFigma, color: "#A259FF" },
-      { name: "Canva", icon: SiCanva, color: "#00C4CC" },
-      { name: "Photoshop", icon: SiAdobephotoshop, color: "#31A8FF" },
+      { name: "Figma", icon: FaFigma, color: "#F24E1E" }, // Figma red/orange gradient base
+      { name: "Canva", icon: SiCanva, color: "#00C4CC" }, // Canva teal
+      { name: "Photoshop", icon: SiAdobephotoshop, color: "#31A8FF" }, // Photoshop blue
     ],
   },
 };
+
 
 export const EDUCATION_TIMELINE = [
   {
