@@ -27,6 +27,8 @@ import {
   SiMongodb,
   SiPostman,
   SiMysql,
+  SiC,
+  SiPhp
 } from "react-icons/si";
 
 import { VscVscode } from "react-icons/vsc";
@@ -92,11 +94,11 @@ export const personalDetails = {
 // Skills data
 export const skillsData = {
   webDevelopment: {
-    title: "Website Development",
+    title: "Languages and Tools",
     technologies: [
       { name: "Java", icon: FaJava, color: "#007396" }, // Java official blue
-      { name: "HTML", icon: FaHtml5, color: "#E34F26" }, // HTML5 orange
-      { name: "CSS", icon: FaCss3Alt, color: "#1572B6" }, // CSS3 blue
+      { name: "C++", icon: SiC, color: "00599C" }, // C++ official blue
+      { name: "PHP", icon: SiPhp, color: "#777BB4" }, // PHP official blue
       { name: "JavaScript", icon: FaJs, color: "#F7DF1E" }, // JS yellow
       { name: "React", icon: FaReact, color: "#61DAFB" }, // React cyan
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" }, // Node.js green

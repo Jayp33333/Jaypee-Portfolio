@@ -8,6 +8,7 @@ import {
   FaFileDownload,
   FaInstagram,
   FaFacebook,
+  FaHandPointer,
 } from "react-icons/fa";
 import ParticlesBackground from "../components/ParticlesBackground";
 import TypingTagline from "../components/TypingTagline";
@@ -80,36 +81,39 @@ const Home = () => {
             Hello, I'm
           </motion.h1>
 
-          <div className="flex flex-row items-center justify-center my-8 md:my-1 z-10 relative overflow-hidden">
-            <div className="absolute inset-0 rounded-lg mix-blend-difference text-white scanning-bar bg-white/20">
-              {/* top-left corner */}
-              <span className="absolute top-0 left-0 w-5 h-[1px] bg-white"></span>
-              <span className="absolute top-0 left-0 w-[1px] h-5 bg-white"></span>
-              {/* top-right corner */}
-              <span className="absolute top-0 right-0 w-5 h-[1px] bg-white"></span>
-              <span className="absolute top-0 right-0 w-[1px] h-5 bg-white"></span>
-              {/* bottom-left corner */}
-              <span className="absolute bottom-0 left-0 w-5 h-[1px] bg-white"></span>
-              <span className="absolute bottom-0 left-0 w-[1px] h-5 bg-white"></span>
-              {/* bottom-right corner */}
-              <span className="absolute bottom-0 right-0 w-5 h-[1px] bg-white"></span>
-              <span className="absolute bottom-0 right-0 w-[1px] h-5 bg-white"></span>
+          <div className="flex flex-row items-center justify-center my-8 md:my-1 z-10 relative px-5">
+            <div className="absolute inset-0 rounded-lg mix-blend-difference  text-white border border-white/10 scanning-bar z-0">
+              <div className="relative w-full h-full z-0">
+                {/* top-left corner */}
+                <span className="absolute top-0 left-0 w-5 h-[1px] bg-white"></span>
+                <span className="absolute top-0 left-0 w-[1px] h-5 bg-white"></span>
+                {/* top-right corner */}
+                <span className="absolute top-0 right-0 w-5 h-[1px] bg-white"></span>
+                <span className="absolute top-0 right-0 w-[1px] h-5 bg-white"></span>
+                {/* bottom-left corner */}
+                <span className="absolute bottom-0 left-0 w-5 h-[1px] bg-white"></span>
+                <span className="absolute bottom-0 left-0 w-[1px] h-5 bg-white"></span>
+                {/* bottom-right corner */}
+                <span className="absolute bottom-0 right-0 w-5 h-[1px] bg-white"></span>
+                <span className="absolute bottom-0 right-0 w-[1px] h-5 bg-white"></span>
+                {/* Hand pointer follows the bar */}
+                <FaHandPointer className="text-white hand-pointer text-2xl z-50" />
+              </div>
             </div>
+
             <motion.div
-              className="relative flex items-center justify-center"
-              initial={{ scale: 0 }}
+              className="flex items-center justify-center"
+              initial={{ scale: 0.7 }}
               animate={{ scale: 1 }}
               transition={{
                 duration: 0.8,
-                delay: 0.8,
-                type: "spring",
-                stiffness: 100,
+                delay: 0.2,
               }}
             >
               {/* Decorative frame */}
 
               {/* Main Letter */}
-              <h2 className="relative z-10 text-[6rem] sm:text-[7rem] md:text-[10rem] font-black text-white/90">
+              <h2 className="text-[6rem] sm:text-[7rem] md:text-[10rem] font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]">
                 J
               </h2>
             </motion.div>
@@ -119,7 +123,7 @@ const Home = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]"
+                className="text-4xl sm:text-5xl md:text-6xl font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]"
               >
                 OHN PAUL
               </motion.h2>
@@ -127,7 +131,7 @@ const Home = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]"
+                className="text-4xl sm:text-5xl md:text-6xl font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]"
               >
                 AMITO
               </motion.h2>
