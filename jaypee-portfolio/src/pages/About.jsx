@@ -480,7 +480,7 @@ const About = () => {
                               <img
                                 src={edu.image}
                                 alt={`${edu.institution} logo`}
-                                className="w-20 h-20 object-contain border border-gray-400 rounded-md p-1 filter grayscale"
+                                className="w-20 h-20 object-cover rounded-md p-1 scale-150"
                               />
                             </div>
                           )}
