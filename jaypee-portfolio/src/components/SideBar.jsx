@@ -43,7 +43,7 @@ const SideBar = () => {
     <>
       {/* Hamburger Button - only show on mobile */}
       {isMobile && (
-        <div className="fixed top-6 left-7 z-50">
+        <div className="fixed top-6 left-7 z-50 px-[6px]">
           <button onClick={toggleMenu} className="focus:outline-none">
             <svg
               width="32"
@@ -84,7 +84,7 @@ const SideBar = () => {
             className={`
               fixed z-40 
               top-0 left-0 
-              h-screen sm:h-auto 
+              h-auto 
               w-auto max-w-[260px] sm:w-auto
               p-6 sm:p-4 
               flex flex-col 
