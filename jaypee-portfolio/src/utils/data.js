@@ -25,31 +25,20 @@ import {
 } from "react-icons/si";
 import { VscCode, VscTerminalPowershell } from "react-icons/vsc";
 
-import { FaGitAlt, FaXTwitter } from "react-icons/fa6";
+import { FaGitAlt } from "react-icons/fa6";
 import Home from "../pages/Home";
 import About from "../pages/About";
-// import Contact from "../pages/Contact";
-import Education from "../pages/Education";
-import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 
 export const SideBarLinks = [
   { id: "01", label: "Home", icon: FaHome, path: "/", element: Home },
   { id: "02", label: "About", icon: FaUser, path: "/about", element: About },
-  { id: "03", label: "Skills", icon: FaCode, path: "/skills", element: Skills },
   {
-    id: "04",
+    id: "3",
     label: "Projects",
     icon: FaProjectDiagram,
     path: "/projects",
     element: Projects,
-  },
-  {
-    id: "05",
-    label: "Education",
-    icon: FaGraduationCap,
-    path: "/education",
-    element: Education,
   },
   // { id: "06", label: "Contact", icon: FaEnvelope, path: "/contact", element: Contact },
 ];
@@ -147,11 +136,6 @@ I’m just a guy who’s fascinated by technology and loves building cool things
 I believe technology should make life easier, and that’s exactly what I aim to do—whether it's crafting a website, solving problems through code, or simply learning something new every day. Right now, I’m on a journey to level up my skills and turn my passion into something meaningful.`,
 };
 
-// import image1 from "../assets/images/elementary.jpg";
-// import image2 from "../assets/images/junior-high.jpg";
-// import image3 from "../assets/images/senior-high.jpg";
-// import image4 from "../assets/images/college.jpg";
-// import image5 from "../assets/images/graduation.jpg";
 import pup from "../assets/images/pup.png";
 import cnhs from "../assets/images/cnhs.png";
 import sumilang from "../assets/images/sumilang.png";
@@ -160,21 +144,21 @@ import sumulong from "../assets/images/sumulong.png";
 export const EDUCATION_TIMELINE = [
   {
     id: 1,
-    title: "Elementary School (Grades 1-2)",
-    institution: "Sumulong Elementary School",
-    duration: "2011 - 2013",
+    title: "College - Diploma in Information Technology",
+    institution: "Polytechnic University of the Philippines, Lopez Campus",
+    duration: "2023 - Present",
     description:
-      "Began formal education by learning basic literacy, numeracy, and classroom routines as a young learner.",
-    image: sumulong
+      "Currently pursuing a diploma in Information Technology, gaining hands-on experience in programming, web development, and problem-solving.",
+    image: pup,
   },
   {
     id: 2,
-    title: "Elementary School (Grades 3-6)",
-    institution: "Sumilang Elementary School",
-    duration: "2013 - 2017",
+    title: "Senior High School - ICT Strand",
+    institution: "Calauag National High School",
+    duration: "2021 - 2023",
     description:
-      "Continued developing core academic skills in reading, writing, and math while becoming more confident and independent in learning.",
-    image: sumilang,
+      "Learned basic IT concepts, programming, and digital tools while strengthening critical thinking and collaboration skills.",
+    image: cnhs,
   },
   {
     id: 3,
@@ -187,21 +171,21 @@ export const EDUCATION_TIMELINE = [
   },
   {
     id: 4,
-    title: "Senior High School - ICT Strand",
-    institution: "Calauag National High School",
-    duration: "2021 - 2023",
+    title: "Elementary School (Grades 3-6)",
+    institution: "Sumilang Elementary School",
+    duration: "2013 - 2017",
     description:
-      "Learned basic IT concepts, programming, and digital tools while strengthening critical thinking and collaboration skills.",
-    image: cnhs,
+      "Continued developing core academic skills in reading, writing, and math while becoming more confident and independent in learning.",
+    image: sumilang,
   },
   {
     id: 5,
-    title: "College - Diploma in Information Technology",
-    institution: "Polytechnic University of the Philippines, Lopez Branch",
-    duration: "2023 - Present",
+    title: "Elementary School (Grades 1-2)",
+    institution: "Sumulong Elementary School",
+    duration: "2011 - 2013",
     description:
-      "Currently pursuing a diploma in Information Technology, gaining hands-on experience in programming, web development, and problem-solving.",
-    image: pup,
+      "Began formal education by learning basic literacy, numeracy, and classroom routines as a young learner.",
+    image: sumulong
   },
 ];
 

@@ -17,12 +17,13 @@ import {
   FaTv,
   FaBasketballBall,
   FaBiking,
-  FaBars,
   FaHtml5,
   FaCss3Alt,
   FaJs,
   FaReact,
   FaFigma,
+  FaGit,
+  FaJava,
 } from "react-icons/fa";
 import {
   SiCanva,
@@ -31,13 +32,16 @@ import {
   SiNodedotjs,
   SiExpress,
   SiMongodb,
+  SiPostman,
+  SiMysql,
 } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 import ParticlesBackground from "../components/ParticlesBackground.jsx";
 import { EDUCATION_TIMELINE } from "../utils/data";
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 }); // Reduced amount for mobile
   const mainControls = useAnimation();
   const socialControls = useAnimation();
   const contentControls = useAnimation();
@@ -75,44 +79,60 @@ const About = () => {
       title: "Website Development",
       technologies: [
         {
+          name: "Java",
+          icon: <FaJava className="text-[#007396]" />,
+        },
+        {
           name: "HTML",
           icon: <FaHtml5 className="text-orange-500" />,
-          level: 90,
         },
         {
           name: "CSS",
           icon: <FaCss3Alt className="text-blue-500" />,
-          level: 85,
         },
         {
           name: "JavaScript",
           icon: <FaJs className="text-yellow-400" />,
-          level: 80,
         },
         {
           name: "React",
           icon: <FaReact className="text-blue-400" />,
-          level: 75,
         },
         {
           name: "Node.js",
           icon: <SiNodedotjs className="text-green-500" />,
-          level: 70,
         },
         {
           name: "Express",
           icon: <SiExpress className="text-gray-400" />,
-          level: 70,
-        },
-        {
-          name: "MongoDB",
-          icon: <SiMongodb className="text-green-600" />,
-          level: 65,
         },
         {
           name: "Tailwind CSS",
           icon: <SiTailwindcss className="text-cyan-400" />,
-          level: 85,
+        },
+        {
+          name: "MongoDB",
+          icon: <SiMongodb className="text-green-600" />,
+        },
+        {
+          name: "MySQL",
+          icon: <SiMysql className="text-blue-600" />,
+        },
+        {
+          name: "Postman",
+          icon: <SiPostman className="text-orange-400" />,
+        },
+        {
+          name: "Git",
+          icon: <FaGit className="text-orange-500" />,
+        },
+        {
+          name: "GitHub",
+          icon: <FaGithub className="text-gray-400" />,
+        },
+        {
+          name: "VS Code",
+          icon: <VscVscode className="text-blue-600" />,
         },
       ],
     },
@@ -122,17 +142,14 @@ const About = () => {
         {
           name: "Figma",
           icon: <FaFigma className="text-purple-500" />,
-          level: 80,
         },
         {
           name: "Canva",
           icon: <SiCanva className="text-blue-400" />,
-          level: 85,
         },
         {
           name: "Photoshop",
           icon: <SiAdobephotoshop className="text-blue-700" />,
-          level: 70,
         },
       ],
     },
@@ -181,6 +198,7 @@ const About = () => {
   ];
 
   const highlightMultiple = (text, keywords) => {
+    if (!text) return text;
     const regex = new RegExp(`(${keywords.join("|")})`, "gi");
     const parts = text.split(regex);
 
@@ -201,11 +219,11 @@ const About = () => {
   return (
     <>
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-md z-40">
+      <nav className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center md:justify-end items-center h-16">
-            {/* Navigation (Always Visible) */}
-            <div className="flex flex-wrap justify-center md:justify-end items-center space-x-1">
+          <div className="flex justify-center md:justify-end items-center h-14 sm:h-16">
+            {/* Navigation */}
+            <div className="flex flex-wrap justify-center md:justify-end items-center space-x-1 sm:space-x-2">
               {navItems.map((item, index) => (
                 <React.Fragment key={item.name}>
                   <motion.a
@@ -220,7 +238,9 @@ const About = () => {
                     {item.name}
                   </motion.a>
                   {index < navItems.length - 1 && (
-                    <span className="text-gray-500 mx-1">{">"}</span>
+                    <span className="text-gray-500 mx-1 text-xs sm:text-sm">
+                      {">"}
+                    </span>
                   )}
                 </React.Fragment>
               ))}
@@ -232,28 +252,33 @@ const About = () => {
       {/* About Section */}
       <section
         ref={ref}
-        className="w-full min-h-[100dvh] flex justify-center items-start px-4 xs:px-6 sm:px-12 md:px-24 lg:px-32 py-12 sm:py-16 bg-black text-white pt-20"
+        className="relative w-full min-h-screen flex justify-center items-start 
+                   px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 
+                   py-4 sm:py-8 md:py-12 bg-black text-white pt-16 sm:pt-20 z-10"
       >
-        <ParticlesBackground />
-        <div className="w-full max-w-5xl">
+        <ParticlesBackground className="absolute inset-0 z-0 pointer-events-none" />
+
+        <div className="relative z-10 w-full max-w-6xl">
           {/* Decorative About Me Logo */}
-          <div className="flex items-center justify-center lg:justify-start my-6">
+          <div className="flex items-center justify-center lg:justify-start my-4 sm:my-6">
             <div className="flex items-center w-full max-w-xs">
               <span className="flex-grow border-t border-gray-500"></span>
-              <span className="px-4 text-white font-bold text-lg sm:text-xl md:text-2xl">
+              <span className="px-3 sm:px-4 text-white font-bold text-lg sm:text-xl md:text-2xl whitespace-nowrap">
                 ABOUT ME
               </span>
               <span className="flex-grow border-t border-gray-500"></span>
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left - Fixed Profile Section */}
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            {/* Left - Profile Section */}
             <motion.div
               variants={fadeIn}
               initial="hidden"
               animate={mainControls}
-              className="w-full lg:w-1/3  backdrop-blur-lg border border-white/20 shadow-2xl rounded-3xl p-6 flex flex-col items-center sticky top-24 h-fit"
+              className="w-full lg:w-1/3 bg-black/40 backdrop-blur-lg border border-white/20 
+                         shadow-2xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col items-center 
+                         sticky top-24 h-fit"
             >
               <motion.img
                 variants={imageAnimation}
@@ -266,14 +291,15 @@ const About = () => {
                   boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)",
                 }}
                 transition={{ duration: 0.3 }}
-                className="w-40 h-40 xs:w-44 xs:h-44 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-white shadow-lg"
+                className="w-32 h-32 xs:w-36 xs:h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 
+                           rounded-full object-cover border-4 border-white shadow-lg"
               />
 
               <motion.h2
                 variants={fadeIn}
                 initial="hidden"
                 animate={mainControls}
-                className="mt-6 text-xl xs:text-2xl font-bold text-white text-center"
+                className="mt-4 sm:mt-6 text-lg xs:text-xl sm:text-2xl font-bold text-white text-center"
               >
                 John Paul Jamito
               </motion.h2>
@@ -282,7 +308,7 @@ const About = () => {
                 variants={fadeIn}
                 initial="hidden"
                 animate={mainControls}
-                className="text-gray-300 text-sm xs:text-base text-center"
+                className="text-gray-300 text-sm sm:text-base text-center mt-1"
               >
                 IT Student • Web Developer
               </motion.p>
@@ -292,7 +318,7 @@ const About = () => {
                 variants={staggerChildren}
                 initial="hidden"
                 animate={socialControls}
-                className="flex gap-4 xs:gap-5 mt-6"
+                className="flex gap-3 sm:gap-4 md:gap-5 mt-4 sm:mt-6"
               >
                 <motion.a
                   variants={socialItem}
@@ -301,9 +327,10 @@ const About = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 transition-colors duration-300 shadow-md"
+                  className="p-2.5 sm:p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 
+                             transition-colors duration-300 shadow-md"
                 >
-                  <FaGithub className="w-5 h-5 xs:w-6 xs:h-6" />
+                  <FaGithub className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                 </motion.a>
 
                 <motion.a
@@ -313,9 +340,10 @@ const About = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 transition-colors duration-300 shadow-md"
+                  className="p-2.5 sm:p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 
+                             transition-colors duration-300 shadow-md"
                 >
-                  <FaInstagram className="w-5 h-5 xs:w-6 xs:h-6" />
+                  <FaInstagram className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                 </motion.a>
 
                 <motion.a
@@ -325,9 +353,10 @@ const About = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 transition-colors duration-300 shadow-md"
+                  className="p-2.5 sm:p-3 rounded-full bg-white text-gray-900 hover:bg-gray-200 
+                             transition-colors duration-300 shadow-md"
                 >
-                  <FaFacebook className="w-5 h-5 xs:w-6 xs:h-6" />
+                  <FaFacebook className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                 </motion.a>
               </motion.div>
 
@@ -343,40 +372,48 @@ const About = () => {
                   boxShadow: "0 5px 15px rgba(255, 255, 255, 0.3)",
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-xl bg-white text-gray-900 font-semibold shadow-md hover:bg-gray-100 transition-colors duration-300 w-full justify-center"
+                className="inline-flex items-center gap-2 mt-4 sm:mt-6 px-4 sm:px-5 py-2 sm:py-2.5 
+                           rounded-xl bg-white text-gray-900 font-semibold shadow-md hover:bg-gray-100 
+                           transition-colors duration-300 w-full justify-center text-sm sm:text-base"
               >
-                <FaDownload className="w-4 h-4" />
+                <FaDownload className="w-3 h-3 sm:w-4 sm:h-4" />
                 Download Resume
               </motion.a>
             </motion.div>
 
-            {/* Right - Scrollable Content Section */}
+            {/* Right - Content Section */}
             <motion.div
               variants={fadeIn}
               initial="hidden"
               animate={contentControls}
-              className="w-full lg:w-2/3 bg-black  backdrop-blur-lg border border-white/20 shadow-2xl rounded-3xl p-6 sm:p-8"
+              className="w-full lg:w-2/3 bg-black backdrop-blur-lg border border-white/20 
+                         shadow-2xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8"
             >
               <div id="introduction" className="scroll-mt-24">
                 <motion.h1
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="font-heading text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6"
+                  className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 md:mb-6 flex items-center gap-3"
                 >
+                  <span className="flex-grow border-t border-gray-500"></span>
                   Introduction
+                  <span className="flex-grow border-t border-gray-500"></span>
                 </motion.h1>
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.7, delay: 0.6 }}
-                  className="text-gray-200 font-sans text-sm sm:text-base lg:text-lg leading-relaxed text-justify font-inter mb-8"
+                  className="text-gray-200 font-sans text-sm sm:text-base lg:text-lg leading-relaxed 
+                             text-justify font-inter mb-6 sm:mb-8"
                 >
-                  {highlightMultiple(ABOUT_ME.content, [
-                    "MERN stack",
-                    "turn my passion into something meaningful",
-                  ])}
+                  {ABOUT_ME?.content
+                    ? highlightMultiple(ABOUT_ME.content, [
+                        "MERN stack",
+                        "turn my passion into something meaningful",
+                      ])
+                    : "Welcome to my portfolio! I'm passionate about web development and creating meaningful digital experiences."}
                 </motion.p>
 
                 {/* Personal Details */}
@@ -384,31 +421,33 @@ const About = () => {
                   variants={fadeIn}
                   initial="hidden"
                   animate={mainControls}
-                  className="w-full mt-6 space-y-4 text-sm sm:text-base font-sans"
+                  className="w-full mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base font-sans"
                 >
-                  <h3 className="text-lg font-semibold text-white mb-3 font-heading">
+                  <h3 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3 font-heading">
                     Personal Details
                   </h3>
                   <div className="flex items-center text-gray-200">
-                    <FaBirthdayCake className="mr-3 text-white" />
-                    <span>
+                    <FaBirthdayCake className="mr-2 sm:mr-3 text-white flex-shrink-0" />
+                    <span className="break-words">
                       {personalDetails.age} years • {personalDetails.birthdate}
                     </span>
                   </div>
 
                   <div className="flex items-center text-gray-200">
-                    <FaPhone className="mr-3 text-white" />
-                    <span>{personalDetails.phone}</span>
+                    <FaPhone className="mr-2 sm:mr-3 text-white flex-shrink-0" />
+                    <span className="break-all">{personalDetails.phone}</span>
                   </div>
 
                   <div className="flex items-center text-gray-200">
-                    <FaEnvelope className="mr-3 text-white" />
-                    <span>{personalDetails.email}</span>
+                    <FaEnvelope className="mr-2 sm:mr-3 text-white flex-shrink-0" />
+                    <span className="break-all">{personalDetails.email}</span>
                   </div>
 
                   <div className="flex items-center text-gray-200">
-                    <FaMapMarkerAlt className="mr-3 text-white" />
-                    <span>{personalDetails.address}</span>
+                    <FaMapMarkerAlt className="mr-2 sm:mr-3 text-white flex-shrink-0" />
+                    <span className="break-words">
+                      {personalDetails.address}
+                    </span>
                   </div>
                 </motion.div>
 
@@ -417,22 +456,24 @@ const About = () => {
                   variants={fadeIn}
                   initial="hidden"
                   animate={mainControls}
-                  className="w-full mt-6"
+                  className="w-full mt-4 sm:mt-6"
                 >
-                  <h3 className="text-lg font-semibold text-white mb-3">
+                  <h3 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">
                     Interests
                   </h3>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3">
                     {interests.map((interest, index) => (
                       <div
                         key={index}
                         className="flex items-center text-gray-200"
                       >
-                        <div className="flex items-center bg-black border border-white p-2 rounded-sm">
-                          <span className="mr-2 text-white">
+                        <div className="flex items-center bg-black/60 border border-white/30 p-2 sm:p-2.5 rounded-lg w-full">
+                          <span className="mr-2 text-white flex-shrink-0">
                             {interest.icon}
                           </span>
-                          <span className="text-sm">{interest.name}</span>
+                          <span className="text-xs sm:text-sm">
+                            {interest.name}
+                          </span>
                         </div>
                       </div>
                     ))}
@@ -441,14 +482,16 @@ const About = () => {
               </div>
 
               {/* Skills Section */}
-              <div id="skills" className="scroll-mt-24 mt-10">
+              <div id="skills" className="scroll-mt-24 mt-8 sm:mt-10">
                 <motion.h2
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="font-heading text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6"
+                  className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 md:mb-6 flex items-center gap-3"
                 >
+                  <span className="flex-grow border-t border-gray-500"></span>
                   Skills and Tools
+                  <span className="flex-grow border-t border-gray-500"></span>
                 </motion.h2>
 
                 {/* Website Development Skills */}
@@ -456,21 +499,25 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="mb-8 font-sans"
+                  className="mb-6 sm:mb-8 font-sans"
                 >
-                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                    <FaCode className="mr-2 text-blue-400 font-heading" />
-                    {skillsData.webDevelopment.title}
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center">
+                    <FaCode className="mr-2 text-blue-400 font-heading flex-shrink-0" />
+                    <span className="break-words">
+                      {skillsData.webDevelopment.title}
+                    </span>
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3  gap-3 sm:gap-4">
                     {skillsData.webDevelopment.technologies.map(
                       (tech, index) => (
                         <div
                           key={index}
-                          className="bg-gray-800/50 p-4 rounded-lg flex items-center"
+                          className="bg-gray-800/50 p-3 sm:p-4 rounded-lg flex flex-col items-center justify-center min-w-0 text-center"
                         >
-                          <div className="mr-3 text-2xl">{tech.icon}</div>
-                          <h4 className="text-white font-medium">
+                          <div className="text-xl sm:text-2xl flex-shrink-0">
+                            {tech.icon}
+                          </div>
+                          <h4 className="text-white font-medium text-sm sm:text-base truncate">
                             {tech.name}
                           </h4>
                         </div>
@@ -485,18 +532,24 @@ const About = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                    <FaFigma className="mr-2 text-purple-500" />
-                    {skillsData.uiUxDesign.title}
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center">
+                    <FaFigma className="mr-2 text-purple-500 flex-shrink-0" />
+                    <span className="break-words">
+                      {skillsData.uiUxDesign.title}
+                    </span>
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                     {skillsData.uiUxDesign.technologies.map((tech, index) => (
                       <div
                         key={index}
-                        className="bg-gray-800/50 p-4 rounded-lg flex items-center"
+                        className="bg-gray-800/50 p-3 sm:p-4 rounded-lg flex flex-col justify-center items-center min-w-0"
                       >
-                        <div className="mr-3 text-2xl">{tech.icon}</div>
-                        <h4 className="text-white font-medium">{tech.name}</h4>
+                        <div className="text-xl sm:text-2xl flex-shrink-0">
+                          {tech.icon}
+                        </div>
+                        <h4 className="text-white font-medium text-sm sm:text-base truncate">
+                          {tech.name}
+                        </h4>
                       </div>
                     ))}
                   </div>
@@ -504,51 +557,83 @@ const About = () => {
               </div>
 
               {/* Education Section */}
-              <div id="education" className="scroll-mt-24 mt-10">
+              <div id="education" className="scroll-mt-24 mt-12">
                 <motion.h2
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="font-heading text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6"
+                  className="font-heading text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-3"
+                  style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }}
                 >
+                  <span className="flex-grow border-t border-gray-500"></span>
                   Education
+                  <span className="flex-grow border-t border-gray-500"></span>
                 </motion.h2>
 
-                <div className="space-y-6">
+                <div className="relative border-l border-gray-500 pl-6">
                   {EDUCATION_TIMELINE?.map((edu, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 * index }}
-                      className="bg-gray-800/50 p-5 rounded-lg border-l-4 border-white flex items-start gap-4"
+                      transition={{ duration: 0.5, delay: index * 0.3 }}
+                      className="mb-10 relative"
                     >
-                      {/* School Logo */}
-                      {edu.image && (
-                        <img
-                          src={edu.image}
-                          alt={`${edu.institution} logo`}
-                          className="w-14 h-14 object-contain rounded-md border border-gray-600 bg-gray-800 p-1"
-                        />
-                      )}
+                      {/* Circle Marker */}
+                      <span className="absolute -left-9 top-0 w-6 h-6 rounded-full bg-white border-2 border-gray-400 shadow-sm"></span>
 
-                      {/* School Info */}
-                      <div>
-                        <p className="text-blue-300">{edu.institution}</p>
-                        <p className="text-gray-400">{edu.duration}</p>
+                      {/* Card */}
+                      <div className="bg-black border border-white/30 rounded-xl p-5 shadow-md hover:shadow-lg transition duration-300">
+                        <div className="flex flex-row gap-4">
+                          {/* School Logo */}
+                          {edu.image && (
+                            <div className="flex-shrink-0 flex items-center justify-center">
+                              <img
+                                src={edu.image}
+                                alt={`${edu.institution} logo`}
+                                className="w-20 h-20 object-contain border border-gray-400 rounded-md p-1 filter grayscale"
+                              />
+                            </div>
+                          )}
+
+                          {/* Info */}
+                          <div className="flex flex-col justify-center">
+                            <h3
+                              className="font-bold text-white"
+                              style={{
+                                fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
+                              }}
+                            >
+                              {edu.institution}
+                            </h3>
+                            <p
+                              className="text-gray-300"
+                              style={{ fontSize: "clamp(0.875rem, 2vw, 1rem)" }}
+                            >
+                              {edu.title}
+                            </p>
+                            <p
+                              className="text-gray-500 italic"
+                              style={{
+                                fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
+                              }}
+                            >
+                              {edu.duration}
+                            </p>
+                          </div>
+                        </div>
+
                         {edu.description && (
-                          <p className="text-gray-300 mt-2">
+                          <p
+                            className="mt-3 text-gray-300 leading-relaxed"
+                            style={{ fontSize: "clamp(0.875rem, 1.8vw, 1rem)" }}
+                          >
                             {edu.description}
                           </p>
                         )}
                       </div>
                     </motion.div>
-                  )) || (
-                    <div className="text-gray-300">
-                      Education data will be displayed here. Add an "education"
-                      array to your ABOUT_ME data.
-                    </div>
-                  )}
+                  ))}
                 </div>
               </div>
             </motion.div>
