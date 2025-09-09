@@ -82,7 +82,7 @@ const Home = () => {
           </motion.h1>
 
           <div className="flex flex-row items-center justify-center my-8 md:my-1 z-10 relative px-5">
-            <div className="absolute inset-0 rounded-lg mix-blend-difference  text-white border border-white/10 scanning-bar z-0">
+            <div className="absolute inset-0 rounded-lg   text-white border border-white/10 scanning-bar z-0">
               <div className="relative w-full h-full z-0">
                 {/* top-left corner */}
                 <span className="absolute top-0 left-0 w-5 h-[1px] bg-white"></span>
@@ -97,6 +97,23 @@ const Home = () => {
                 <span className="absolute bottom-0 right-0 w-5 h-[1px] bg-white"></span>
                 <span className="absolute bottom-0 right-0 w-[1px] h-5 bg-white"></span>
                 {/* Hand pointer follows the bar */}
+                <div className="overflow-hidden text-nowrap flex flex-row mx-5">
+  <div className="flex items-center justify-center">
+    {/* Main Letter */}
+    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(8rem,16vw,16rem)] leading-none">
+      J
+    </h2>
+  </div>
+  <div className="flex flex-col items-start justify-center ml-1">
+    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(2.35rem,5vw,4.5rem)] leading-none">
+      OHN PAUL
+    </h2>
+    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(4rem,8vw,8rem)] leading-none">
+      AMITO
+    </h2>
+  </div>
+</div>
+
                 <FaHandPointer className="text-white hand-pointer text-2xl z-50" />
               </div>
             </div>
@@ -113,17 +130,17 @@ const Home = () => {
               {/* Decorative frame */}
 
               {/* Main Letter */}
-              <h2 className="text-[6rem] sm:text-[7rem] md:text-[10rem] font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]">
+              <h2 className="font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff] [font-size:clamp(8rem,16vw,16rem)] leading-none">
                 J
               </h2>
             </motion.div>
 
-            <div className="flex flex-col items-start ml-1 mt-0">
+            <div className="flex flex-col items-start ml-1">
               <motion.h2
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]"
+                className="font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff] [font-size:clamp(2.35rem,5vw,4.5rem)] leading-none"
               >
                 OHN PAUL
               </motion.h2>
@@ -131,7 +148,7 @@ const Home = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff]"
+                className="font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff] [font-size:clamp(4rem,8vw,8rem)] leading-none"
               >
                 AMITO
               </motion.h2>
