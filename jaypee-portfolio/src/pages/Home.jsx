@@ -98,21 +98,21 @@ const Home = () => {
                 <span className="absolute bottom-0 right-0 w-[1px] h-5 bg-white"></span>
                 {/* Hand pointer follows the bar */}
                 <div className="overflow-hidden text-nowrap flex flex-row mx-5">
-  <div className="flex items-center justify-center">
-    {/* Main Letter */}
-    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(8rem,16vw,16rem)] leading-none">
-      J
-    </h2>
-  </div>
-  <div className="flex flex-col items-start justify-center ml-1">
-    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(2.35rem,5vw,4.5rem)] leading-none">
-      OHN PAUL
-    </h2>
-    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(4rem,8vw,8rem)] leading-none">
-      AMITO
-    </h2>
-  </div>
-</div>
+                  <div className="flex items-center justify-center">
+                    {/* Main Letter */}
+                    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(8rem,16vw,16rem)] leading-none">
+                      J
+                    </h2>
+                  </div>
+                  <div className="flex flex-col items-start justify-center ml-1">
+                    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(2.35rem,5vw,4.5rem)] leading-none">
+                      OHN PAUL
+                    </h2>
+                    <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(4rem,8vw,8rem)] leading-none">
+                      AMITO
+                    </h2>
+                  </div>
+                </div>
 
                 <FaHandPointer className="text-white hand-pointer text-2xl z-50" />
               </div>
