@@ -162,7 +162,7 @@ const About = () => {
               animate={mainControls}
               className="w-full lg:w-1/3 bg-black/40 backdrop-blur-lg border border-white/20 
                          shadow-2xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col items-center 
-                         sticky top-24 h-fit"
+                         lg:sticky lg:top-24 h-fit"
             >
               <motion.img
                 variants={imageAnimation}
@@ -311,8 +311,8 @@ const About = () => {
                   <div className="flex items-center text-gray-200">
                     <FaBirthdayCake className="mr-2 sm:mr-3 text-white flex-shrink-0" />
                     <span className="break-words">
-                      {personalDetails.birthdate} •{" "}
-                      {personalDetails.age} years old 
+                      {personalDetails.birthdate} • {personalDetails.age} years
+                      old
                     </span>
                   </div>
 
@@ -398,22 +398,23 @@ const About = () => {
 
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 font-sans">
                     {skillsData.webDevelopment.technologies.map(
-                      (tech, index) => {
-                        const TechIcon = tech.icon;
-                        return (
-                          <div
-                            key={index}
-                            className="bg-gray-800/50 p-3 sm:p-4 rounded-lg flex flex-col justify-center items-center min-w-0"
-                          >
-                            <div className="text-xl sm:text-2xl flex-shrink-0">
-                              <TechIcon style={{ color: tech.color }} />
-                            </div>
-                            <h4 className="text-white font-medium text-sm sm:text-base truncate">
-                              {tech.name}
-                            </h4>
+                      (tech, index) => (
+                        <div
+                          key={index}
+                          className="bg-white/10 border border-white/20 p-3 sm:p-4 rounded-lg flex flex-col justify-center items-center min-w-0"
+                        >
+                          <div className="text-xl sm:text-2xl flex-shrink-0">
+                            <img
+                              src={tech.icon}
+                              alt={tech.name}
+                              className="w-8 h-8 object-contain"
+                            />
                           </div>
-                        );
-                      }
+                          <h4 className="text-white font-medium text-sm sm:text-base truncate">
+                            {tech.name}
+                          </h4>
+                        </div>
+                      )
                     )}
                   </div>
                 </motion.div>
@@ -432,22 +433,23 @@ const About = () => {
                   </h3>
 
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 font-sans">
-                    {skillsData.uiUxDesign.technologies.map((tech, index) => {
-                      const TechIcon = tech.icon;
-                      return (
-                        <div
-                          key={index}
-                          className="bg-gray-800/50 p-3 sm:p-4 rounded-lg flex flex-col justify-center items-center min-w-0"
-                        >
-                          <div className="text-xl sm:text-2xl flex-shrink-0">
-                            <TechIcon style={{ color: tech.color }} />
-                          </div>
-                          <h4 className="text-white font-medium text-sm sm:text-base truncate">
-                            {tech.name}
-                          </h4>
+                    {skillsData.uiUxDesign.technologies.map((tech, index) => (
+                      <div
+                        key={index}
+                        className="bg-white/10 border border-white/20 p-3 sm:p-4 rounded-lg flex flex-col justify-center items-center min-w-0"
+                      >
+                        <div className="text-xl sm:text-2xl flex-shrink-0">
+                          <img
+                            src={tech.icon}
+                            alt={tech.name}
+                            className="w-8 h-8 object-contain"
+                          />
                         </div>
-                      );
-                    })}
+                        <h4 className="text-white font-medium text-sm sm:text-base truncate">
+                          {tech.name}
+                        </h4>
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
               </div>

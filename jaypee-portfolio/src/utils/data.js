@@ -3,14 +3,6 @@ import {
   FaUser,
   FaCode,
   FaProjectDiagram,
-  FaGithub,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaFigma,
-  FaGit,
-  FaJava,
   FaGamepad,
   FaMusic,
   FaTv,
@@ -18,20 +10,23 @@ import {
   FaBiking,
 } from "react-icons/fa";
 
-import {
-  SiCanva,
-  SiAdobephotoshop,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiPostman,
-  SiMysql,
-  SiC,
-  SiPhp
-} from "react-icons/si";
-
-import { VscVscode } from "react-icons/vsc";
+import java from "../assets/icons/java.png";
+import cpp from "../assets/icons/cpp.png";
+import php from "../assets/icons/php.png";
+import javascript from "../assets/icons/javascript.png";
+import react from "../assets/icons/react.png";
+import node from "../assets/icons/nodejs.png";
+import express from "../assets/icons/express.png";
+import mongodb from "../assets/icons/mongodb.png";
+import mysql from "../assets/icons/my-sql.png";
+import tailwind from "../assets/icons/tailwind.png";
+import git from "../assets/icons/git.png";
+import github from "../assets/icons/github.png";
+import vscode from "../assets/icons/vs-code.png";
+import postman from "../assets/icons/postman.png";
+import figma from "../assets/icons/figma.png";
+import canva from "../assets/icons/canva.png";
+import photoshop from "../assets/icons/photoshop.png";
 
 import pup from "../assets/images/pup.png";
 import cnhs from "../assets/images/cnhs.png";
@@ -96,28 +91,28 @@ export const skillsData = {
   webDevelopment: {
     title: "Languages and Tools",
     technologies: [
-      { name: "Java", icon: FaJava, color: "#007396" }, // Java official blue
-      { name: "C++", icon: SiC, color: "00599C" }, // C++ official blue
-      { name: "PHP", icon: SiPhp, color: "#777BB4" }, // PHP official blue
-      { name: "JavaScript", icon: FaJs, color: "#F7DF1E" }, // JS yellow
-      { name: "React", icon: FaReact, color: "#61DAFB" }, // React cyan
-      { name: "Node.js", icon: SiNodedotjs, color: "#339933" }, // Node.js green
-      { name: "Express", icon: SiExpress, color: "gray" }, // Express is black
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" }, // Tailwind cyan
-      { name: "MongoDB", icon: SiMongodb, color: "#47A248" }, // MongoDB green
-      { name: "MySQL", icon: SiMysql, color: "#4479A1" }, // MySQL blue
-      { name: "Postman", icon: SiPostman, color: "#FF6C37" }, // Postman orange
-      { name: "Git", icon: FaGit, color: "#F05032" }, // Git orange
-      { name: "GitHub", icon: FaGithub, color: "gray" }, // GitHub black
-      { name: "VS Code", icon: VscVscode, color: "#007ACC" }, // VS Code blue
+      { name: "Java", icon: java }, 
+      { name: "C++", icon: cpp }, 
+      { name: "PHP", icon: php }, 
+      { name: "JavaScript", icon: javascript }, 
+      { name: "React", icon: react },
+      { name: "Node.js", icon: node }, 
+      { name: "Express", icon: express}, 
+      { name: "Tailwind CSS", icon: tailwind },
+      { name: "MongoDB", icon: mongodb },
+      { name: "MySQL", icon: mysql }, 
+      { name: "Postman", icon: postman },
+      { name: "Git", icon: git }, 
+      { name: "GitHub", icon: github },
+      { name: "VS Code", icon: vscode },
     ],
   },
   uiUxDesign: {
     title: "UI/UX Design",
     technologies: [
-      { name: "Figma", icon: FaFigma, color: "#F24E1E" }, // Figma red/orange gradient base
-      { name: "Canva", icon: SiCanva, color: "#00C4CC" }, // Canva teal
-      { name: "Photoshop", icon: SiAdobephotoshop, color: "#31A8FF" }, // Photoshop blue
+      { name: "Figma", icon: figma },
+      { name: "Canva", icon: canva },
+      { name: "Photoshop", icon: photoshop },
     ],
   },
 };
