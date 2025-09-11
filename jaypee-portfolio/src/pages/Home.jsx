@@ -46,7 +46,7 @@ const Home = () => {
             <FaGithub className="text-xl" />
           </motion.a>
           <motion.a
-            href="https://www.instagram.com/jay_p33333/"
+            href="https://www.instagram.com/_jypm2"
             target="_blank"
             whileHover={{ scale: 1.1 }}
             className="p-2 bg-white/5 backdrop-blur-md rounded-full border border-white/10 hover:bg-white/10 transition-all"

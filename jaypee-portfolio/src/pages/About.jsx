@@ -219,7 +219,7 @@ const About = () => {
 
                 <motion.a
                   variants={socialItem}
-                  href="https://www.instagram.com/jay_p33333/"
+                  href="https://www.instagram.com/_jypm2"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
