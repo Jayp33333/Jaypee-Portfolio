@@ -193,7 +193,8 @@ const Projects = () => {
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white flex items-center gap-2 hover:bg-white/80 hover:text-black transition shadow-md"
-                  onClick={() => window.open(currentProject.link, "_blank")}
+                  // onClick={() => window.open(currentProject.link, "_blank")}
+                  onClick={() => alert("Sorry My Project is Under Development")}
                 >
                   <FaLink /> Visit
                 </motion.button>
@@ -341,7 +342,8 @@ const Projects = () => {
               <div className="flex flex-wrap gap-4">
                 <motion.a
                   whileTap={{ scale: 0.95 }}
-                  href={currentProject.link}
+                  // href={currentProject.link}
+                  onClick={() => alert("Sorry My Project is Under Development")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 rounded-lg bg-white/10 text-white border border-white/20 font-semibold flex items-center gap-2 hover:rounded-full transition shadow-md"
