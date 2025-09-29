@@ -43,7 +43,6 @@
     background: #fff;
     animation: blink 1s infinite;
   }
-  /* Scanner bar animation */
   @keyframes scan {
     0% {
       width: 0;
@@ -62,7 +61,7 @@
     80% {
       width: 100%;
       opacity: 1;
-    } /* hold for ~3s */
+    }
     90% {
       width: 32%;
       height: 100%;
@@ -79,8 +78,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 40%; /* width of scanner frame */
-    background: rgba(255, 255, 255, 0.15); /* faint light effect */
+    width: 40%;
+    background: rgba(255, 255, 255, 0.15);
     animation: scan 8s ease-in-out infinite;
     animation-delay: 1.5s;
     opacity: 0;
@@ -114,11 +113,10 @@
     }
   }
 
-  /* Hand pointer synced with bar */
   .hand-pointer {
     position: absolute;
-    bottom: -25px; /* just below the bar */
-    right: 0; /* stick to right end */
+    bottom: -25px;
+    right: 0;
     animation: hand-movement 10s ease-in-out infinite;
     animation-delay: 3s;
   }

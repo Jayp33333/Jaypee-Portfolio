@@ -26,7 +26,7 @@ import {
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 }); // Reduced amount for mobile
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const mainControls = useAnimation();
   const socialControls = useAnimation();
   const contentControls = useAnimation();
@@ -40,7 +40,6 @@ const About = () => {
     }
   }, [isInView, mainControls, socialControls, contentControls]);
 
-  // Animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -97,11 +96,9 @@ const About = () => {
 
   return (
     <>
-      {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center md:justify-end items-center h-14 sm:h-16">
-            {/* Navigation */}
             <div className="flex flex-wrap justify-center md:justify-end items-center space-x-1 sm:space-x-2">
               {navItems.map((item, index) => (
                 <React.Fragment key={item.name}>
@@ -128,7 +125,6 @@ const About = () => {
         </div>
       </nav>
 
-      {/* About Section */}
       <section
         ref={ref}
         className="relative w-full min-h-screen flex justify-center items-start 
@@ -138,7 +134,6 @@ const About = () => {
         <ParticlesBackground className="absolute inset-0 z-0 pointer-events-none" />
 
         <div className="relative z-10 w-full max-w-6xl">
-          {/* Decorative About Me Logo */}
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -155,7 +150,6 @@ const About = () => {
           </motion.div>
 
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            {/* Left - Profile Section */}
             <motion.div
               variants={fadeIn}
               initial="hidden"
@@ -197,7 +191,6 @@ const About = () => {
                 IT Student • Web Developer
               </motion.p>
 
-              {/* Socials */}
               <motion.div
                 variants={staggerChildren}
                 initial="hidden"
@@ -243,7 +236,6 @@ const About = () => {
                   <FaFacebook className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                 </motion.a>
               </motion.div>
-              {/* Resume Button */}
               <motion.a
                 href="/resume.pdf"
                 download
@@ -260,7 +252,6 @@ const About = () => {
               </motion.a>
             </motion.div>
 
-            {/* Right - Content Section */}
             <motion.div
               variants={fadeIn}
               initial="hidden"
@@ -295,7 +286,6 @@ const About = () => {
                     : "Welcome to my portfolio! I'm passionate about web development and creating meaningful digital experiences."}
                 </motion.p>
 
-                {/* Personal Details */}
                 <motion.div
                   variants={fadeIn}
                   initial="hidden"
@@ -334,7 +324,6 @@ const About = () => {
                   </div>
                 </motion.div>
 
-                {/* Interests */}
                 <motion.div
                   variants={fadeIn}
                   initial="hidden"
@@ -370,7 +359,6 @@ const About = () => {
                 </motion.div>
               </div>
 
-              {/* Skills Section */}
               <div id="skills" className="scroll-mt-24 mt-24">
                 <motion.h2
                   initial={{ opacity: 0, x: -20 }}
@@ -383,7 +371,6 @@ const About = () => {
                   <span className="flex-grow border-t border-gray-500"></span>
                 </motion.h2>
 
-                {/* Website Development Skills */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -419,7 +406,6 @@ const About = () => {
                   </div>
                 </motion.div>
 
-                {/* UI/UX Design Skills */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -454,7 +440,6 @@ const About = () => {
                 </motion.div>
               </div>
 
-              {/* Education Section */}
               <div id="education" className="scroll-mt-24 mt-24">
                 <motion.h2
                   initial={{ opacity: 0, x: -20 }}
@@ -477,15 +462,12 @@ const About = () => {
                       transition={{ duration: 0.5, delay: index * 0.3 }}
                       className="mb-10 relative"
                     >
-                      {/* Circle Marker */}
                       <span className="absolute -left-9 top-0 w-6 h-6 rounded-full bg-black border-2 border-white shadow-sm flex items-center justify-center">
                         <span className="w-3 h-3 rounded-full bg-white"></span>
                       </span>
 
-                      {/* Card */}
                       <div className="bg-black border border-white/30 rounded-xl p-5 shadow-md hover:shadow-lg transition duration-300">
                         <div className="flex flex-row gap-4">
-                          {/* School Logo */}
                           {edu.image && (
                             <div className="flex-shrink-0 flex items-center justify-center">
                               <img
@@ -496,7 +478,6 @@ const About = () => {
                             </div>
                           )}
 
-                          {/* Info */}
                           <div className="flex flex-col justify-center">
                             <h3
                               className="font-bold text-white"

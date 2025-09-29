@@ -20,14 +20,13 @@ const itemVariants = {
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 1024);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-  const location = useLocation(); // Get current route
+  const location = useLocation(); 
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const handleLinkClick = () => {
     if (isMobile) setIsOpen(false);
   };
 
-  // Handle screen resize
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 1024;
@@ -41,7 +40,6 @@ const SideBar = () => {
 
   return (
     <>
-      {/* Hamburger Button - only show on mobile */}
       {isMobile && (
         <div className="fixed top-6 left-7 z-50 px-[6px]">
           <button onClick={toggleMenu} className="focus:outline-none">
@@ -73,7 +71,6 @@ const SideBar = () => {
         </div>
       )}
 
-      {/* Sidebar */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

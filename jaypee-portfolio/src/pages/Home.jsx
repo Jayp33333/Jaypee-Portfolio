@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -22,7 +21,6 @@ const Home = () => {
       transition={{ duration: 0.8, ease: "easeInOut" }}
       exit={{ opacity: 0 }}
     >
-      {/* Background elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
@@ -30,7 +28,6 @@ const Home = () => {
       <ParticlesBackground />
 
       <div className="container mx-auto px-4 md:px-8 py-12 flex flex-col items-center justify-center min-h-screen">
-        {/* Social links */}
         <motion.div
           className="fixed top-6 right-6 z-50 flex flex-col gap-4"
           initial={{ opacity: 0, x: 50 }}
@@ -70,7 +67,6 @@ const Home = () => {
           </motion.a>
         </motion.div>
 
-        {/* Main content */}
         <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -84,22 +80,16 @@ const Home = () => {
           <div className="flex flex-row items-center justify-center my-8 md:my-1 z-10 relative px-5">
             <div className="absolute inset-0 rounded-lg   text-white border border-white/10 scanning-bar z-0">
               <div className="relative w-full h-full z-0">
-                {/* top-left corner */}
                 <span className="absolute top-0 left-0 w-5 h-[1px] bg-white"></span>
                 <span className="absolute top-0 left-0 w-[1px] h-5 bg-white"></span>
-                {/* top-right corner */}
                 <span className="absolute top-0 right-0 w-5 h-[1px] bg-white"></span>
                 <span className="absolute top-0 right-0 w-[1px] h-5 bg-white"></span>
-                {/* bottom-left corner */}
                 <span className="absolute bottom-0 left-0 w-5 h-[1px] bg-white"></span>
                 <span className="absolute bottom-0 left-0 w-[1px] h-5 bg-white"></span>
-                {/* bottom-right corner */}
                 <span className="absolute bottom-0 right-0 w-5 h-[1px] bg-white"></span>
                 <span className="absolute bottom-0 right-0 w-[1px] h-5 bg-white"></span>
-                {/* Hand pointer follows the bar */}
                 <div className="overflow-hidden text-nowrap flex flex-row mx-5">
                   <div className="flex items-center justify-center">
-                    {/* Main Letter */}
                     <h2 className="font-black text-white [-webkit-text-stroke:2px_black] [font-size:clamp(8rem,16vw,16rem)] leading-none">
                       J
                     </h2>
@@ -127,9 +117,6 @@ const Home = () => {
                 delay: 0.2,
               }}
             >
-              {/* Decorative frame */}
-
-              {/* Main Letter */}
               <h2 className="font-black text-black [text-shadow:_-1px_-1px_0_#FFFFFF,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff] [font-size:clamp(8rem,16vw,16rem)] leading-none">
                 J
               </h2>
@@ -155,7 +142,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Typing tagline */}
           <TypingTagline
             lines={[
               "IT Student",
@@ -167,7 +153,6 @@ const Home = () => {
             ]}
           />
 
-          {/* CTA buttons */}
           <motion.div
             className="flex flex-wrap gap-4 justify-center mt-6"
             initial={{ opacity: 0, y: 20 }}

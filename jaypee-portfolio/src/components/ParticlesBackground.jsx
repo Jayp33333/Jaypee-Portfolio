@@ -8,9 +8,8 @@ const ParticlesBackground = () => {
     const ctx = canvas.getContext("2d");
     let animationFrameId;
 
-    // ✅ Dynamic particle count based on screen size
     const baseParticleCount = 40;
-    const density = 12000; // pixels per particle
+    const density = 12000;
     let particles = [];
 
     const particleMaxSize = 2.5;
@@ -20,7 +19,6 @@ const ParticlesBackground = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // Adjust number of particles responsively
       const newCount = Math.floor((canvas.width * canvas.height) / density);
       particles = [];
       for (let i = 0; i < newCount; i++) {
@@ -51,7 +49,6 @@ const ParticlesBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p, i) => {
-        // Mouse repulsion
         if (mouse.x && mouse.y) {
           const dx = mouse.x - p.x;
           const dy = mouse.y - p.y;
@@ -64,21 +61,17 @@ const ParticlesBackground = () => {
           }
         }
 
-        // Move
         p.x += p.speedX;
         p.y += p.speedY;
 
-        // Bounce off edges
         if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
         if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
 
-        // Draw particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
         ctx.fill();
 
-        // Connections
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
@@ -114,7 +107,7 @@ const ParticlesBackground = () => {
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed", // ✅ makes sure it covers viewport
+        position: "fixed",
         top: 0,
         left: 0,
         width: "100%",

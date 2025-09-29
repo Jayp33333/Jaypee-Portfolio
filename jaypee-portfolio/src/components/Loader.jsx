@@ -24,7 +24,7 @@ const Loader = ({ onFinish }) => {
       scale: 0.9,
       transition: {
         duration: 1.2,
-        ease: [0.33, 1, 0.68, 1], // Smooth easing
+        ease: [0.33, 1, 0.68, 1],
       },
     },
   };
@@ -37,7 +37,7 @@ const Loader = ({ onFinish }) => {
       transition: {
         duration: 1.2,
         ease: [0.33, 1, 0.68, 1],
-        delay: 0.3, // Slight delay after logo starts moving
+        delay: 0.3, 
       },
     },
   };
@@ -49,24 +49,22 @@ const Loader = ({ onFinish }) => {
       transition: {
         duration: 0.8,
         ease: "easeOut",
-        when: "afterChildren", // Wait for children animations to complete
+        when: "afterChildren",
       },
     },
   };
 
   useEffect(() => {
-    // Show text after logo draws
     const textTimer = setTimeout(() => {
       setShowText(true);
-    }, 1800); // Slightly before path animation completes
+    }, 1800);
 
-    // Complete animation and call onFinish
     const finishTimer = setTimeout(() => {
       setIsComplete(true);
       if (onFinish) {
         onFinish();
       }
-    }, 3500); // Total animation time
+    }, 3500);
 
     return () => {
       clearTimeout(textTimer);
@@ -120,7 +118,6 @@ const Loader = ({ onFinish }) => {
         </motion.svg>
       </motion.div>
 
-      {/* Portfolio Text */}
       {showText && (
         <motion.h1
           className="text-white font-bold tracking-wide mt-6 text-[clamp(1.5rem,4vw,2.5rem)] text-center"

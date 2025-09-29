@@ -44,7 +44,6 @@ const Projects = () => {
 
   const currentProject = projectData[centerIndex];
 
-  // Animation variants for the carousel
   const centerVariants = {
     enter: (direction) => ({
       x: direction > 0 ? 500 : -500,
@@ -105,7 +104,6 @@ const Projects = () => {
   return (
     <section className="relative containerLayout w-full flex flex-col items-center justify-center py-20 px-6 overflow-hidden">
       <ParticlesBackground />
-      {/* Title */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -119,14 +117,12 @@ const Projects = () => {
         <span className="flex-grow border-t border-gray-500"></span>
       </motion.div>
 
-      {/* Carousel Container */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         className="relative w-full max-w-6xl h-96 flex items-center justify-center"
       >
-        {/* Left Card */}
         <motion.div
           className="absolute hidden md:flex w-1/4 lg:w-1/3 z-10 cursor-pointer perspective-1000"
           variants={sideVariants}
@@ -150,7 +146,6 @@ const Projects = () => {
           </div>
         </motion.div>
 
-        {/* Center Card */}
         <motion.div
           initial={{ opacity: 0.9, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -203,7 +198,6 @@ const Projects = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Right Card */}
         <motion.div
           initial={{ opacity: 0.9, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -235,7 +229,6 @@ const Projects = () => {
         </motion.div>
       </motion.div>
 
-      {/* Indicators */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -253,7 +246,6 @@ const Projects = () => {
         ))}
       </motion.div>
 
-      {/* Controls */}
       <div className="flex justify-center gap-8">
         <motion.button
           initial={{ opacity: 0, x: -20 }}
@@ -277,7 +269,6 @@ const Projects = () => {
         </motion.button>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {showModal && (
           <motion.div
@@ -295,7 +286,6 @@ const Projects = () => {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25 }}
             >
-              {/* Close Button */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -305,7 +295,6 @@ const Projects = () => {
                 ✕
               </motion.button>
 
-              {/* Project Image */}
               <div className="w-full h-64 sm:h-80 rounded-xl overflow-hidden mb-6 shadow-lg">
                 <img
                   src={currentProject.image}
@@ -314,12 +303,10 @@ const Projects = () => {
                 />
               </div>
 
-              {/* Project Title */}
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 {currentProject.title}
               </h3>
 
-              {/* Tech Stack Tags */}
               {currentProject.tags && (
                 <div className="flex flex-wrap gap-2 mb-5">
                   {currentProject.tags.map((tag, idx) => (
@@ -333,12 +320,10 @@ const Projects = () => {
                 </div>
               )}
 
-              {/* Project Description */}
               <p className="text-gray-200 leading-relaxed mb-6 text-sm md:text-base lg:text-lg font-sans">
                 {currentProjectDescription}
               </p>
 
-              {/* Action Buttons */}
               <div className="flex flex-wrap gap-4">
                 <motion.a
                   whileTap={{ scale: 0.95 }}
@@ -368,7 +353,6 @@ const Projects = () => {
         )}
       </AnimatePresence>
 
-      {/* Add custom CSS for 3D perspective */}
       <style>{`
         .perspective-1000 {
           perspective: 1000px;

@@ -47,7 +47,6 @@ export const SideBarLinks = [
     path: "/projects",
     element: Projects,
   },
-  // { id: "06", label: "Contact", icon: FaEnvelope, path: "/contact", element: Contact },
 ];
 
 export const navItems = [
@@ -77,7 +76,6 @@ I’m just a guy who’s fascinated by technology and loves building cool things
 I believe technology should make life easier, and that’s exactly what I aim to do—whether it's crafting a website, solving problems through code, or simply learning something new every day. Right now, I’m on a journey to level up my skills and turn my passion into something meaningful.`,
 };
 
-// Personal details data
 export const personalDetails = {
   age: "20",
   birthdate: "January 15, 2005",
@@ -91,18 +89,18 @@ export const skillsData = {
   webDevelopment: {
     title: "Languages and Tools",
     technologies: [
-      { name: "Java", icon: java }, 
-      { name: "C++", icon: cpp }, 
-      { name: "PHP", icon: php }, 
-      { name: "JavaScript", icon: javascript }, 
+      { name: "Java", icon: java },
+      { name: "C++", icon: cpp },
+      { name: "PHP", icon: php },
+      { name: "JavaScript", icon: javascript },
       { name: "React", icon: react },
-      { name: "Node.js", icon: node }, 
-      { name: "Express", icon: express}, 
+      { name: "Node.js", icon: node },
+      { name: "Express", icon: express },
       { name: "Tailwind CSS", icon: tailwind },
       { name: "MongoDB", icon: mongodb },
-      { name: "MySQL", icon: mysql }, 
+      { name: "MySQL", icon: mysql },
       { name: "Postman", icon: postman },
-      { name: "Git", icon: git }, 
+      { name: "Git", icon: git },
       { name: "GitHub", icon: github },
       { name: "VS Code", icon: vscode },
     ],
@@ -116,7 +114,6 @@ export const skillsData = {
     ],
   },
 };
-
 
 export const EDUCATION_TIMELINE = [
   {

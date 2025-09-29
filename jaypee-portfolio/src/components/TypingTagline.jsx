@@ -1,4 +1,3 @@
-// src/components/TypingTagline.jsx
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -21,7 +20,7 @@ const TypingTagline = ({ lines }) => {
         setCharIndex((prev) => prev - 1);
       } else {
         if (!isDeleting && charIndex === currentLine.length) {
-          setTimeout(() => setIsDeleting(true), 1500); // pause before delete
+          setTimeout(() => setIsDeleting(true), 1500);
         } else if (isDeleting && charIndex === 0) {
           setIsDeleting(false);
           setLineIndex((prev) => (prev + 1) % lines.length);
