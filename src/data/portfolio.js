@@ -26,10 +26,10 @@ export const navItems = [
 ];
 
 export const about = [
-  "I am currently studying Information Technology at the Polytechnic University of the Philippines Lopez Campus. I am a full stack developer who also works as a 3D artist, creating 3D models and building digital experiences that bring ideas to life.",
-  "For my capstone project, I developed Iska Virtual Tour, a 3D campus tour that lets users explore the campus in an interactive and immersive way. I handled both the development side and the 3D modeling, from building the application to creating the 3D assets needed for the virtual environment.",
-  "I work with tools and technologies for web development and 3D creation, including React, Node.js, MongoDB, Blender, and Three.js. I enjoy combining code and 3D design to build projects that are not only functional, but also visually engaging and meaningful.",
-  "Right now, I am focused on improving my skills as a developer and 3D artist, taking on freelance work, and looking for opportunities where I can grow, collaborate, and continue building impactful projects.",
+  "I'm Jaypee, a developer and 3D artist who enjoys building digital products from start to finish, handling both how they look and how they work.",
+  "As a 3D artist, I create models, textures, and interactive environments using Blender and Three.js, with a focus on real-time WebGL experiences that run directly in the browser.",
+  "As a full stack developer, I build complete web applications end to end with React, Node.js, and MongoDB, prioritizing clean interfaces, reliable APIs, and a polished user experience.",
+  "I'm also passionate about AI integration, bringing intelligent features such as chat assistants, smart search, and automation into real products to make them more capable and intuitive. I'm always looking for opportunities to grow, collaborate, and deliver meaningful work.",
 ];
 
 export const techStackFull = [
