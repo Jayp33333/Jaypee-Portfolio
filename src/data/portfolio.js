@@ -1,4 +1,5 @@
 // Project & gallery images
+import iskaPreview from "../assets/images/Iska-preview.jpg";
 import jaypee from "../assets/images/jaypee.jpg";
 import ojt1 from "../assets/images/OJT1.jpg";
 import ojt2 from "../assets/images/OJT2.jpg";
@@ -10,6 +11,8 @@ import ditGroupPic2 from "../assets/images/dit-group-pic2.jpg";
 import orgDay from "../assets/images/org-day.jpg";
 import gabBirthday from "../assets/images/gab-birthday.jpg";
 import thanksgiving from "../assets/images/thanksgiving.jpg";
+import ojt1Certificate from "../assets/certificates/OJT1Certificate.png";
+import ojt2Certificate from "../assets/certificates/OJT2Certificate.png";
 
 export const profile = {
   name: "John Paul Jamito",
@@ -72,6 +75,7 @@ export const projectsFull = [
     title: "IskaVT",
     subtitle: "Capstone Project",
     description: "3D Virtual Campus Tour",
+    image: iskaPreview,
     tech: ["React", "Three.js", "Node.js", "Blender", "MongoDB"],
     domain: "iska-vt.vercel.app",
     demo: "https://iska-vt.vercel.app/",
@@ -92,11 +96,11 @@ export const experience = [
   },
   {
     role: "Technical Support Intern",
-    org: "IT Avenue Lucena",
+    org: "IT Avenue",
     year: "2026",
   },
   {
-    role: "Network Documentation Assistant Intern",
+    role: "IT Support Intern",
     org: "StellarSat Solutions Inc.",
     year: "2025",
   },
@@ -124,28 +128,16 @@ export const education = [
 // NOTE: Update these with real credentials/links as you earn them.
 export const certifications = [
   {
-    name: "Responsive Web Design",
-    org: "freeCodeCamp",
-    date: "2024",
-    link: "https://www.freecodecamp.org/",
+    name: "Certificate of Completion (OJT)",
+    org: "IT Avenue Lucena",
+    date: "2026",
+    image: ojt2Certificate,
   },
   {
-    name: "JavaScript Algorithms & Data Structures",
-    org: "freeCodeCamp",
-    date: "2024",
-    link: "https://www.freecodecamp.org/",
-  },
-  {
-    name: "Frontend Development",
-    org: "Coursera",
-    date: "2023",
-    link: "https://www.coursera.org/",
-  },
-  {
-    name: "Git & GitHub Essentials",
-    org: "Online Course",
-    date: "2023",
-    link: "https://github.com/",
+    name: "Certificate of Completion (OJT)",
+    org: "StellarSat Solutions Inc.",
+    date: "2025",
+    image: ojt1Certificate,
   },
 ];
 
