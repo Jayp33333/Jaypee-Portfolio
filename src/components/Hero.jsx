@@ -3,13 +3,14 @@ import {
   FaMapMarkerAlt,
   FaRegCalendarCheck,
   FaEnvelope,
-  FaDownload,
+  // FaDownload,
   FaChevronRight,
 } from "react-icons/fa";
 import VerifiedBadge from "./ui/VerifiedBadge";
 import { profile } from "../data/portfolio";
 import { useSchedule } from "./ScheduleModal";
 import avatar from "../assets/images/jaypee.jpg";
+import morningAvatar from "../assets/images/jaypee-morning.jpg";
 
 export default function Hero() {
   const { open } = useSchedule();
@@ -22,11 +23,19 @@ export default function Hero() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-          <img
-            src={avatar}
-            alt={profile.name}
-            className="h-36 w-36 shrink-0 rounded-2xl object-cover ring-1 ring-gray-200 sm:h-44 sm:w-44 dark:ring-white/10"
-          />
+          <div className="relative h-36 w-36 shrink-0 overflow-hidden rounded-2xl bg-gray-100 ring-1 ring-gray-200 sm:h-44 sm:w-44 dark:bg-white/5 dark:ring-white/10">
+            {/* Light mode: morning photo. Dark mode: normal photo. Crossfades on toggle. */}
+            <img
+              src={morningAvatar}
+              alt={`${profile.name} (morning)`}
+              className="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-700 ease-in-out dark:opacity-0"
+            />
+            <img
+              src={avatar}
+              alt={profile.name}
+              className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 ease-in-out dark:opacity-100"
+            />
+          </div>
 
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
@@ -52,10 +61,12 @@ export default function Hero() {
               <a href={`mailto:${profile.email}`} className="btn-outline">
                 <FaEnvelope size={12} /> Send Email
               </a>
+              {/* Download Resume — re-enable when resume is ready
               <a href={profile.resume} download className="btn-outline">
                 <FaDownload size={12} /> Download Resume
                 <FaChevronRight size={9} className="opacity-50" />
               </a>
+              */}
             </div>
           </div>
         </div>

@@ -1,7 +1,15 @@
 // Project & gallery images
-import pup from "../assets/images/pup.png";
-import cnhs from "../assets/images/cnhs.png";
 import jaypee from "../assets/images/jaypee.jpg";
+import ojt1 from "../assets/images/OJT1.jpg";
+import ojt2 from "../assets/images/OJT2.jpg";
+import selfie1 from "../assets/images/selfie1.jpg";
+import selfie2 from "../assets/images/selfie2.jpg";
+import stellarsatFam from "../assets/images/stellarsat-fam.jpg";
+import ditGroupPic1 from "../assets/images/dit-group-pic.jpg";
+import ditGroupPic2 from "../assets/images/dit-group-pic2.jpg";
+import orgDay from "../assets/images/org-day.jpg";
+import gabBirthday from "../assets/images/gab-birthday.jpg";
+import thanksgiving from "../assets/images/thanksgiving.jpg";
 
 export const profile = {
   name: "John Paul Jamito",
@@ -66,9 +74,7 @@ export const projectsFull = [
     description: "3D Virtual Campus Tour",
     tech: ["React", "Three.js", "Node.js", "Blender", "MongoDB"],
     domain: "iska-vt.vercel.app",
-    image: pup,
     demo: "https://iska-vt.vercel.app/",
-    github: "https://github.com/Jayp33333",
     featured: true,
   },
 ];
@@ -80,9 +86,19 @@ export const projectsPreview = projectsFull.slice(0, PREVIEW_PROJECTS);
 export const experience = [
   {
     role: "Freelancing",
-    org: "Full Stack Development · 3D Modeling",
+    org: "Full Stack & 3D Web Projects",
     year: "2026",
     current: true,
+  },
+  {
+    role: "Technical Support Intern",
+    org: "IT Avenue Lucena",
+    year: "2026",
+  },
+  {
+    role: "Network Documentation Assistant Intern",
+    org: "StellarSat Solutions Inc.",
+    year: "2025",
   },
   {
     role: "Hello World!",
@@ -134,9 +150,17 @@ export const certifications = [
 ];
 
 export const gallery = [
-  { src: pup, caption: "PUP Lopez Campus" },
-  { src: jaypee, caption: "Jaypee" },
-  { src: cnhs, caption: "Senior High ICT" },
+  { src: ditGroupPic2, caption: "DIT Group Picture 2" },
+  { src: ojt2, caption: "OJT 2" },
+  { src: stellarsatFam, caption: "StellarSat Family" },
+  { src: ditGroupPic1, caption: "DIT Group Picture" },
+
+  { src: orgDay, caption: "Org Day" },
+  { src: ojt1, caption: "OJT 1" },
+  { src: gabBirthday, caption: "Gab's Birthday" },
+  { src: thanksgiving, caption: "Thanksgiving" }, 
+  { src: selfie1, caption: "Selfie with Bert" },
+  { src: selfie2, caption: "Selfie with Sy and Drey" },
 ];
 
 export const socials = [
